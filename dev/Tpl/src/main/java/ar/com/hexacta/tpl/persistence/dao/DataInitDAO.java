@@ -62,7 +62,7 @@ public class DataInitDAO implements DataInitRepository {
                 .withPublisher("Editorial Atlantida").withCategory(eBookCategory).withBookCopy(bookCopy4).build();
         bookDAO.saveOrUpdate(book3);
 
-        // Loan
+        // Prestamos
         Loan loan = user.loan(book1);
         genericDAO.saveOrUpdate(loan);
         genericDAO.saveOrUpdate(user);

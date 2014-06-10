@@ -10,7 +10,8 @@ import ar.com.hexacta.tpl.persistence.repository.BookRepository;
 
 public class BookDAO extends AbstractDAO<Book> implements BookRepository {
 
-    public List<Book> findAll(final String publisher) {
+    @SuppressWarnings("unchecked")
+	public List<Book> findAll(final String publisher) {
         Criteria criteria = this.getSession().createCriteria(Book.class);
         criteria.add(Restrictions.like("publisher", publisher));
         return criteria.list();
