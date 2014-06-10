@@ -5,24 +5,8 @@
      xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
      default-lazy-init="false" default-autowire="no">
 		
-	<!--	
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean" lazy-init="default" autowire="default">
-		<property name="dataSource" ref="dbSource" />
-		<property name="mappingLocations" value="classpath*:ar/com/hexacta/HATJavaBaseProject/persistence/mappings/*.hbm.xml" />
-		<property name="hibernateProperties">
-			<props>
-				<prop key="hibernate.show_sql">false</prop>
-				<prop key="hibernate.format_sql">false</prop>
-				<prop key="hibernate.use_sql_comments">false</prop>
-				<prop key="hibernate.dialect">${db.hibernate.dialet}</prop>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
-				<prop key="hibernate.cglib.use_reflection_optimizer">true</prop>
- 				<prop key="hibernate.connection.autocommit">false</prop>
-				<prop key="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</prop>
-			</props>
-		</property>
-	</bean>
-	-->
+
+
 	
 	<bean id="simpleJDBCTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
 		<constructor-arg ref="dbSource"/>
