@@ -7,6 +7,8 @@ import ar.com.hexacta.tpl.model.Book;
 public interface IBooksService {
 
     List<Book> findAllBooks();
+    
+    Book findBook(String bookId);
 
     void createBook(final Book book);
 

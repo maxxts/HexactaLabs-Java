@@ -17,4 +17,16 @@ public class BookDAO extends AbstractDAO<Book> implements BookRepository {
         return criteria.list();
     }
 
+	@Override
+	public Book findById(String bookId) {
+		Criteria criteria = this.getSession().createCriteria(Book.class);
+        criteria.add(Restrictions.like("id", bookId));
+        return (Book) criteria.uniqueResult();
+	}
+
+	@Override
+	public void deleteById(String bookId) {
+		super.deleteById(bookId);
+	}
+
 }

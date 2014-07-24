@@ -499,7 +499,7 @@ div.botones div.derecha input {
 div.botones.ajuste {
 	padding-bottom:10px
 }
-input[type="submit"] {
+input[type="button"] {
 	border:1px solid #bcbcbc;
 	color:#fff!important;
 	background:url(ui-lightness/images/backTabs3.jpg) top left;
@@ -508,7 +508,7 @@ input[type="submit"] {
 	font-size:12px!important;
 	font-family:Arial, Helvetica, sans-serif;
 }
-input[type="submit"]:hover {
+input[type="button"]:hover {
 	border:1px solid #bcbcbc;
 	color:#fff!important;
 	background:url(ui-lightness/images/backTabs4.jpg) top left;
