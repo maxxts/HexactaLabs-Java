@@ -11,7 +11,7 @@
 			<generator class="identity" />
 		</id>
 		
-		<one-to-one name="user" class="ar.com.hexacta.tpl.model.User" />
+		<property name="user" type="java.lang.String" />
 		
 		<one-to-one name="book" class="ar.com.hexacta.tpl.model.BookCopy" />
 		

@@ -1,20 +1,19 @@
 package ar.com.hexacta.tpl.persistence.dao;
 
+import java.util.Date;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.hexacta.tpl.model.Book;
 import ar.com.hexacta.tpl.model.BookCategory;
 import ar.com.hexacta.tpl.model.BookCopy;
 import ar.com.hexacta.tpl.model.Loan;
-import ar.com.hexacta.tpl.model.User;
 import ar.com.hexacta.tpl.model.builder.BookBuilder;
 import ar.com.hexacta.tpl.model.builder.BookCategoryBuilder;
 import ar.com.hexacta.tpl.model.builder.BookCopyBuilder;
 import ar.com.hexacta.tpl.persistence.repository.DataInitRepository;
 
 public class DataInitDAO implements DataInitRepository {
-
-    private UserDAO userDAO;
 
     private BookDAO bookDAO;
 
@@ -24,12 +23,6 @@ public class DataInitDAO implements DataInitRepository {
 
     @Transactional
     private void createData() {
-
-        // Users
-        User user = new User("Peter", "Parker");
-        userDAO.saveOrUpdate(user);
-        User admin = new User("Tony", "Stark");
-        userDAO.saveOrUpdate(admin);
 
         // Categorias
         BookCategory eBookCategory = new BookCategoryBuilder().withName("ebook")
@@ -63,9 +56,8 @@ public class DataInitDAO implements DataInitRepository {
         bookDAO.saveOrUpdate(book3);
 
         // Prestamos
-        Loan loan = user.loan(book1);
+        Loan loan = new Loan("user1", bookCopy1, new Date(), new Date());
         genericDAO.saveOrUpdate(loan);
-        genericDAO.saveOrUpdate(user);
         genericDAO.saveOrUpdate(book1);
 
     }
@@ -92,9 +84,4 @@ public class DataInitDAO implements DataInitRepository {
     public void setGenericDAO(final GenericDAO genericDAO) {
         this.genericDAO = genericDAO;
     }
-
-    public void setUserDAO(final UserDAO userDAO) {
-        this.userDAO = userDAO;
-    }
-
 }

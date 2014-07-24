@@ -24,7 +24,7 @@
        http://www.springframework.org/schema/lang
        http://www.springframework.org/schema/lang/spring-lang-2.0.xsd">
        
-     <bean id="service.books" class="ar.com.hexacta.tpl.service.impl.BooksServiceImpl">
+    <bean id="service.books" class="ar.com.hexacta.tpl.service.impl.BooksServiceImpl">
 		<property name="bookRepository" ref="db.dao.book"/>
 	</bean> 
 	

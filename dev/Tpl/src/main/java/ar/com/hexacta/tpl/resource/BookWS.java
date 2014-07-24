@@ -1,4 +1,4 @@
-package ar.com.hexacta.tpl.service.impl;
+package ar.com.hexacta.tpl.resource;
 
 import java.io.IOException;
 import java.util.List;
@@ -17,6 +17,7 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import ar.com.hexacta.tpl.model.Book;
+import ar.com.hexacta.tpl.service.impl.BooksServiceImpl;
 
 /**
  * @author lnapoli

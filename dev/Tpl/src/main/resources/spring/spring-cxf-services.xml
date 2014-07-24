@@ -27,7 +27,7 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
   
 
    
-	<bean id="booksWS" class="ar.com.hexacta.tpl.service.impl.BookWS">
+	<bean id="booksWS" class="ar.com.hexacta.tpl.resource.BookWS">
 		<property name="bookService">
 			<ref bean="service.books" />
 		</property>

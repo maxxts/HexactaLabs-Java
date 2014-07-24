@@ -34,15 +34,10 @@
 	</bean>
 
 	
-	<bean id="db.dao.user" class="ar.com.hexacta.tpl.persistence.dao.UserDAO">		
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	
-		<bean id="db.dao.generic" class="ar.com.hexacta.tpl.persistence.dao.GenericDAO">		
+	<bean id="db.dao.generic" class="ar.com.hexacta.tpl.persistence.dao.GenericDAO">		
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	<bean id="db.dao.dataInit" class="ar.com.hexacta.tpl.persistence.dao.DataInitDAO">
-		<property name="userDAO" ref="db.dao.user"/>
 		<property name="bookDAO" ref="db.dao.book"/>
 		<property name="bookCategoryDAO" ref="db.dao.bookCategory"/>
 		<property name="genericDAO" ref="db.dao.generic"/>

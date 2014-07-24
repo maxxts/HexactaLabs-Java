@@ -13,7 +13,7 @@ public class Loan extends Entity {
 
     private static final long serialVersionUID = 1L;
 
-    private User user;
+    private String user;
 
     private BookCopy book;
 
@@ -25,7 +25,7 @@ public class Loan extends Entity {
         super();
     }
 
-    public Loan(final User user, final BookCopy book, final Date fromDate, final Date toDate) {
+    public Loan(final String user, final BookCopy book, final Date fromDate, final Date toDate) {
         super();
         this.user = user;
         this.book = book;
@@ -33,7 +33,7 @@ public class Loan extends Entity {
         this.toDate = toDate;
     }
 
-    public User getUser() {
+    public String getUser() {
         return user;
     }
 
