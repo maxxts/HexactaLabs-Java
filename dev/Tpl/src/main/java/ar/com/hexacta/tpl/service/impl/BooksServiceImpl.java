@@ -22,24 +22,31 @@ public class BooksServiceImpl implements IBooksService {
 
     @Override
     @Transactional
-    @PreAuthorize("hasRole('ROLE_SUPERVISOR')")
     public void deleteBook(final Book book) {
         booksRepository.delete(book);
-
     }
+    
+    public void deleteBookById(String bookId) {
+    	booksRepository.deleteById(bookId);
+	}
 
     @Override
     @Transactional
-    @PreAuthorize("hasRole('ROLE_SUPERVISOR')")
     public void updateBook(final Book book) {
         // TODO: Add validation logic
         booksRepository.save(book);
     }
-
+    
     @Override
     public List<Book> findAllBooks() {
         return booksRepository.findAll();
     }
+    
+    @Override
+    @Transactional
+	public Book findBook(String bookId) {
+		return booksRepository.findById(bookId);
+	}
 
     public BookRepository getBookRepository() {
         return booksRepository;

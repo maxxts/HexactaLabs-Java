@@ -1,0 +1,58 @@
+<section id="editBook">
+	<div ng-controller="editBookCtrl">
+		<div class="ContenedorContent">
+			<!-- 				<div wicket:id="feedbackPanel" id="feedbackPanel" /> -->
+			<div class="ContenedorContentBox">
+				<h2>LIBROS</h2>
+				<div class="Contenedor fondoGrisClaro">
+					<div class="busquedas">
+						<form novalidate id="bookDataEditionForm">
+							<fieldset>
+								<legend>
+									Editar Libro
+								</legend>
+								<div id="bookDataEditionPanel">
+									<div class="busquedasBox">
+										<label class="labelIzquierda">Título: </label> 
+										<input type="text"	id="name" class="inputAjuste4" maxlength="150" />
+										<div class="Clear"></div>
+									</div>
+									<div class="busquedasForm">
+										<label class="labelIzquierda">Descripción: </label> 
+										<input type="text" id="description" class="inputAjuste4" />
+										<div class="Clear"></div>
+									</div>
+									<div class="busquedasForm">
+										<label class="labelIzquierda">Editorial: </label> 
+										<input type="text" id="publisher" class="inputAjuste4" />
+										<div class="Clear"></div>
+									</div>
+									<div class="busquedasForm">
+										<label class="labelIzquierda"> País: </label> 
+										<select>
+											<option>Argentina</option>
+											<option>Brasil</option>
+											<option>Uruguay</option>
+										</select> 
+										<br/>
+									</div>
+								</div>
+								<br /> <label class="labelIzquierda">Categorias: </label>
+								<div wicket:id="bookCategoriesListPanel"></div>
+								<div class="linea">
+									<input type="button" value="Volver" ng-click="backToHome()"/>
+									<div class="botones">
+										<input type="button" value="Cancelar" id="cancelButton" /> 
+										<input type="button" value="Guardar" id="saveBookButton" /> 
+										<br>
+									</div>
+								</div>
+								<div class="Clear"></div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

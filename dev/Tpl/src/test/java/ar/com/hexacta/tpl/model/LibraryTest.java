@@ -2,6 +2,7 @@ package ar.com.hexacta.tpl.model;
 
 import junit.framework.Assert;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import ar.com.hexacta.tpl.model.builder.BookBuilder;
@@ -13,6 +14,7 @@ import ar.com.hexacta.tpl.model.exceptions.NoBookCopyException;
 /**
  * TODO: description
  */
+@Ignore
 public class LibraryTest {
 
     @Test

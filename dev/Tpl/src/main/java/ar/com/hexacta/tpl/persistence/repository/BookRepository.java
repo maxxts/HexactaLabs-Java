@@ -9,7 +9,11 @@ public interface BookRepository {
     void save(final Book book);
 
     void delete(final Book book);
+    
+    void deleteById(String bookId);
 
     List<Book> findAll();
+
+	Book findById(String bookId);
 
 }

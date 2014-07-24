@@ -12,6 +12,8 @@ public class Book extends Entity {
     private String description;
 
     private String publisher;
+    
+    private String country;
 
     private Set<BookCategory> bookCategories = new HashSet<BookCategory>(0);
 
@@ -78,4 +80,12 @@ public class Book extends Entity {
     public void setPublisher(final String publisher) {
         this.publisher = publisher;
     }
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
 }
