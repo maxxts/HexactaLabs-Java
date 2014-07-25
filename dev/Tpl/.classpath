@@ -4,7 +4,11 @@
   <classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
   <classpathentry kind="output" path="target/classes"/>
   <classpathentry kind="var" path="M2_REPO/javax/ws/rs/javax.ws.rs-api/2.0-m10/javax.ws.rs-api-2.0-m10.jar"/>
+<<<<<<< HEAD
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+=======
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+>>>>>>> 590d1330b9e9f06ab4c8d422452bc4d08ec911d1
   <classpathentry kind="var" path="M2_REPO/org/hibernate/hibernate-tools/3.2.3.GA/hibernate-tools-3.2.3.GA.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/beanshell/bsh/2.0b4/bsh-2.0b4.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/hibernate/jtidy/r8-20060801/jtidy-r8-20060801.jar"/>
