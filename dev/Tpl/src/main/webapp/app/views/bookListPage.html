@@ -1,60 +1,56 @@
 <section id="bookListPage">
 <div ng-controller="bookListCtrl">
+<div>
+	<div id="feedbackPanel" />
 		<div>
-			<div id="feedbackPanel" />
-			<div class="ContenedorContentBox" style="height: auto;">
-				<div>
-					<div class="Contenedor fondoBlanco"	style="height: auto; text-align: center;">
-						<div class="col-md-2">
-							<!--Sidebar content-->
-							B&uacute;squeda: <input ng-model="query">
-						</div>
-						
-						<h4 class="ajuste">
-							<span class="textoDestacado">Libros Disponibles</span>
-						</h4>
-						<div class="ContenedorTablas" style="height: auto;">
-							<table border="0" cellspacing="0" cellpadding="0">
-								<tr ng-repeat="book in books | filter:query">
-									
-									<!-- Fields -->
-									<td data-title="'Título'" width="180">
-										<span class="textoDestacado" style="text-align: center;">{{book.name}}</span>
-									</td>
-									<td data-title="'Descripción'" width="370">
-										<span class="textoDestacado" style="text-align: center;">{{book.description}}</span>
-									</td>
-									<td data-title="'Editorial'" width="370">
-										<span	class="textoDestacado" style="text-align: center;">{{book.publisher}}</span>
-									</td>
-									<td data-title="'Categorías'" width="370">
-										<span class="textoDestacado" style="text-align: center;">{{book.categories}}</span>
-									</td>
-									<!-- End Fields -->
+			<div class="col-md-2">
+			<!--Sidebar content-->
+				B&uacute;squeda: 
+					<input type="text" class="form-control" placeholder="Ingrese libro a buscar">
+			</div>	
+			<h4>Libros Disponibles	</h4>
+				<button type="button" class="btn btn-primary" ng-click="linkToCreateBook()">Crear Nuevo Libro</button>
 
-									<!-- Buttons -->
-									<td width="50">
-										<input type="button" value="Editar"	style="text-align: center;" ng-click="linkToEditBook(book.id)" />
-									</td>
-									<td width="50">
-										<input type="button" value="Borrar"	style="text-align: center;" ng-click="linkToDeleteBook(book.id)" />
-									</td>
-									<td width="50">
-										<input type="button" value="Prestar" style="text-align: center;" ng-click="linkToLendBook(book.id)" />
-									</td>
-									<!-- End Buttons -->
-									
-								</tr>
-							</table>
-						</div>
-					</div>
-				</div>
-				<div class="botones">
-					<input type="button" id="createBookButton"
-						value="Crear nuevo libro" class="btn btn-primary" ng-click="linkToCreateBook()"/>
-				</div>
-				<div class="Clear"></div>
-			</div>
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr ng-repeat="book in books | filter:query"> <!-- NO ESTA FILTRANDO BIEN -->
+						
+						<!-- Fields -->
+						<td data-title="'Título'" width="180">
+							<span class="textoDestacado" style="text-align: center;"> {{book.name}}</span>
+						</td>
+						<td data-title="'Descripción'" width="320">
+							<span class="textoDestacado" style="text-align: center;">{{book.description}}</span>
+						</td>
+						<td data-title="'Editorial'" width="320">
+							<span	class="textoDestacado" style="text-align: center;">{{book.publisher}}</span>
+						</td>
+						<td data-title="'Categorías'" width="320">
+							<span class="textoDestacado" style="text-align: center;">{{book.categories}}</span>
+						</td>
+						<!-- End Fields -->
+
+						<!-- Buttons --> 
+						<!--div class="btn-group"> ALGO ASI ES CON EL BOOTSTRAP, HAY Q FIJARSE BIEN COMO XQ QUEDAN ARRIBA Y SOLO 1 VEZ
+						  <button type="button" class="btn btn-default" ng-click="linkToEditBook(book.id)">Editar</button>
+						  <button type="button" class="btn btn-default" ng-click="linkToDeleteBook(book.id)">Borrar</button>
+						  <button type="button" class="btn btn-default" ng-click="linkToLendBook(book.id)">Prestar</button>
+						</div-->
+						<td width="50">
+							<input type="button" value="Editar"	style="text-align: center;" ng-click="linkToEditBook(book.id)" />
+						</td>
+						<td width="50">
+							<input type="button" value="Borrar"	style="text-align: center;" ng-click="linkToDeleteBook(book.id)" />
+						</td>
+						<td width="50">
+							<input type="button" value="Prestar" style="text-align: center;" ng-click="linkToLendBook(book.id)" />
+						</td>
+						<!-- End Buttons -->
+						
+				</tr>
+			</table>
 		</div>
+		<div class="Clear"></div>
+	</div>
 </div>
+
 </section>
