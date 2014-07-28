@@ -33,10 +33,7 @@ public abstract class AbstractDAO<T> extends HibernateDaoSupport {
     }
 
     public void update(final T entity) {
-    	//TODO: validate existence
-    	//this.getHibernateTemplate().getSessionFactory().getCurrentSession().merge(entity);
-    	T merged = (T)this.getSession().merge(entity);
-    	this.getSession().update(merged);
+    	this.getSession().update(entity);
     }
 
     public void saveOrUpdate(final T entity) {

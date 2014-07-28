@@ -14,7 +14,7 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
 <!--   <import resource="classpath:META-INF/cxf/cxf-servlet.xml" /> -->
 <!--   <import resource="classpath:META-INF/cxf/cxf-extension-jaxrs-binding.xml"/>  -->
 
-	<jaxrs:server id="BookCXFService" address="/bookWS">
+	<jaxrs:server id="BookCXFService" address="/books">
 		<jaxrs:serviceBeans>
 			<ref bean="booksWS" />
 		</jaxrs:serviceBeans>
