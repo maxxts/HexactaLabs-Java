@@ -2,6 +2,7 @@ package ar.com.hexacta.tpl.persistence.dao;
 
 import java.util.Date;
 
+import org.apache.log4j.Logger;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.hexacta.tpl.model.Book;
@@ -14,7 +15,7 @@ import ar.com.hexacta.tpl.model.builder.BookCopyBuilder;
 import ar.com.hexacta.tpl.persistence.repository.DataInitRepository;
 
 public class DataInitDAO implements DataInitRepository {
-
+	private static final Logger LOG = Logger.getLogger(DataInitDAO.class); 
     private BookDAO bookDAO;
 
     private BookCategoryDAO bookCategoryDAO;
@@ -45,15 +46,17 @@ public class DataInitDAO implements DataInitRepository {
                 .withPublisher("Editorial Planeta").withCategory(physicalCategory).withBookCopy(bookCopy1, bookCopy2)
                 .build();
         bookDAO.saveOrUpdate(book1);
-
+        LOG.info("Created book " + book1.getId());
         Book book2 = new BookBuilder().withName("El codigo Da Vinci")
                 .withDescription("Novela de misterio del escritor Dan Brown.").withPublisher("Editorial Estrada")
                 .withCategory(physicalCategory).withBookCopy(bookCopy3).build();
         bookDAO.saveOrUpdate(book2);
+        LOG.info("Created book " + book2.getId());
 
         Book book3 = new BookBuilder().withName("El Hobbit").withDescription("Novela fantastica de J. R. R. Tolkien.")
                 .withPublisher("Editorial Atlantida").withCategory(eBookCategory).withBookCopy(bookCopy4).build();
         bookDAO.saveOrUpdate(book3);
+        LOG.info("Created book " + book3.getId());
 
         // Prestamos
         Loan loan = new Loan("user1", bookCopy1, new Date(), new Date());

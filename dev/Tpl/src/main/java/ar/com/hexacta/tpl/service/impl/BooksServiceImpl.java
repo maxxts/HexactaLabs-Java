@@ -2,7 +2,6 @@ package ar.com.hexacta.tpl.service.impl;
 
 import java.util.List;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.hexacta.tpl.model.Book;
@@ -17,7 +16,7 @@ public class BooksServiceImpl implements IBooksService {
     @Transactional
     public void createBook(final Book book) {
         // TODO: Add validation logic
-        booksRepository.save(book);
+    	booksRepository.save(book);
     }
 
     @Override
@@ -26,6 +25,7 @@ public class BooksServiceImpl implements IBooksService {
         booksRepository.delete(book);
     }
     
+    @Transactional
     public void deleteBookById(String bookId) {
     	booksRepository.deleteById(bookId);
 	}
@@ -34,7 +34,7 @@ public class BooksServiceImpl implements IBooksService {
     @Transactional
     public void updateBook(final Book book) {
         // TODO: Add validation logic
-        booksRepository.save(book);
+    	booksRepository.update(book);
     }
     
     @Override
@@ -43,7 +43,6 @@ public class BooksServiceImpl implements IBooksService {
     }
     
     @Override
-    @Transactional
 	public Book findBook(String bookId) {
 		return booksRepository.findById(bookId);
 	}

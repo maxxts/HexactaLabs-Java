@@ -345,7 +345,6 @@
 	</dependencies>
 
 	<properties>
-		<wicket.version>1.5.4</wicket.version>
 		<jetty.version>6.1.16</jetty.version>
 
 		<!-- Application settings -->
