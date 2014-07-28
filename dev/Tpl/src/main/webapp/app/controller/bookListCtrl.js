@@ -14,7 +14,7 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 	
 	$http({
 		method : 'GET',
-		url: '/Tpl/rest/bookWS/getBooks',
+		url: '/Tpl/rest/books',
 		headers : {'Content-type' : 'application/json', 'Accept' : 'application/json'}
 	}).success(function(data, status, headers, config){
 
