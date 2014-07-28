@@ -6,7 +6,7 @@
 				<form role="form" class="col-md-12">
 					<div class="form-group col-md-9">
 						<div class="input-group col-md-12">
-							<input type="text" class="form-control" placeholder="Ingrese libro a buscar">
+							<input type="text" class="form-control" placeholder="Ingrese libro a buscar" ng-model="query">
 							<span class="input-group-btn">
 								<button class="btn btn-primary">Buscar!</button>
 							</span>
@@ -31,21 +31,21 @@
 							<th class="text-center" colspan="3"> Acciones </th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody ng-repeat="book in books | filter:query">
 						<tr>						
 							<!-- Fields -->
 							<!-- Hacer los td con vertical-align:middle -->							
 							<td>
-								Titulo <!-- {{book.name}} --> 
+								{{book.name }} 
 							</td>
 							<td>
-								Descripcion <!-- {{book.description}}  -->
+								{{book.description}}
 							</td>
 							<td>
-								Editorial <!--  {{book.publisher}}  -->
+								{{book.publisher}}
 							</td>
 							<td>
-								Categorias <!-- {{book.categories}}  -->
+								{{book.bookCategories}}
 							</td>
 							<!-- End Fields -->
 	

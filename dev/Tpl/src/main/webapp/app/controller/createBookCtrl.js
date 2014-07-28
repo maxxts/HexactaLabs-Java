@@ -3,7 +3,7 @@ booksApp.controller('createBookCtrl', function($scope,$location,$rootScope,$http
 
     $scope.save = function(aBook) {
     	var jsonBook = angular.toJson(aBook);
-    	$http.post('/Tpl/rest/createBook', jsonBook).success(function(data, status, headers, config){
+    	$http.post('/Tpl/rest/books', jsonBook).success(function(data, status, headers, config){
     		if(status = 200)
     		{
     	    	//Ok message and go back
