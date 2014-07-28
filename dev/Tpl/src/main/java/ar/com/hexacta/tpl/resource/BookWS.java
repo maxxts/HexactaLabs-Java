@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -32,21 +34,21 @@ public class BookWS{
     BooksServiceImpl bookService;
 
 	@GET
-	@Path("/getBooks")
+	@Path("/books")
 	@Produces("application/json")
 	public List<Book> findAllBooks() {
 		return bookService.findAllBooks();
 	}
 	
 	@GET
-	@Path("/getBook/{bookId}")
+	@Path("/books/{bookId}")
 	@Produces("application/json")
 	public Book findBook(@PathParam("bookId") final String bookId) {
 		return bookService.findBook(bookId);
 	}
 
 	@POST
-	@Path("/createBook")
+	@Path("/books")
 	@Consumes("application/json")
 	public Response createBook(@Multipart(value = "book2", type = "application/json") String jsonBook) {
 		try {
@@ -70,13 +72,14 @@ public class BookWS{
 
 	}
 
-	@POST
-	@Path("/editBook")
+	@PUT
+	@Path("/books/{bookId}")
 	@Consumes("application/json")
-	public Response updateBook(@PathParam("book") final String jsonBook) {
-		try {
-			
-			bookService.updateBook(parseBook(jsonBook));
+	public Response updateBook(@PathParam("bookId") final String bookId, String jsonBook) {
+		try {			
+			Book book = parseBook(jsonBook);
+			book.setId(new Long(bookId));
+			bookService.updateBook(book);
 			
 		} catch (JsonParseException e) {
 			e.printStackTrace();
@@ -94,8 +97,8 @@ public class BookWS{
 		return Response.ok().build();
 	}
 
-	@POST
-	@Path("/deleteBook")
+	@DELETE
+	@Path("/books/{bookId}")
 	public void deleteBook(@PathParam("bookId") final String bookId) {
 		bookService.deleteBookById(bookId);
 	}
