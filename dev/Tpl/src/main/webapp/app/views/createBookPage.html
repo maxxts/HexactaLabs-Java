@@ -1,40 +1,40 @@
 <section id="createBook">
 	<div class="container jumbotron col-md-6 col-md-offset-3"
 		ng-controller="createBookCtrl">
-		<form novalidate class="" id="createBookForm">
+		<form name="createBookForm" novalidate id="createBookForm">
 			<div class="col-md-8 col-md-offset-2" id="feedbackPanel" />
 			<fieldset>
 				<legend> Crear nuevo libro </legend>
 				<!-- TITULO -->
 				<div class="form-group">
-					<label class="control-label">T&iacute;tulo: </label> <input type="text"
-						class="form-control" ng-model="newBook.name" ng-required="true"
-						id="name" maxlength="150" />
+					<label class="control-label">T&iacute;tulo: </label> <input
+						required type="text" class="form-control" ng-model="newBook.name"
+						ng-required="true" id="name" maxlength="150" />
 				</div>
 				<!-- DESCRIPCION -->
 				<div class="form-group">
-					<label class="">Descripci&oacute;n: </label> <input type="text"
-						class="form-control" ng-model="newBook.description"
+					<label class="">Descripci&oacute;n: </label> <input required
+						type="text" class="form-control" ng-model="newBook.description"
 						ng-required="true" id="description" />
 
 				</div>
 				<!-- EDITORIAL -->
 				<div class="form-group">
-					<label class="">Editorial: </label> <input type="text"
+					<label class="">Editorial: </label> <input required type="text"
 						class="form-control" ng-model="newBook.publisher"
 						ng-required="true" id="publisher" />
 
 				</div>
 				<!-- SELECT PAISES -->
 				<div class="form-group">
-					<label class="">Pa&iacute;s: </label> <select class="form-control"
-						ng-model="newBook.country" ng-required="true">
+					<label class="">Pa&iacute;s: </label> <select required
+						class="form-control" ng-model="newBook.country" ng-required="true">
 						<option>Argentina</option>
 						<option>Brasil</option>
 						<option>Uruguay</option>
 					</select>
 				</div>
-				
+
 				<!-- CHECKBOX CATEGORIAS -->
 				<div class="form-group">
 					<label class="">Categorias: </label>
