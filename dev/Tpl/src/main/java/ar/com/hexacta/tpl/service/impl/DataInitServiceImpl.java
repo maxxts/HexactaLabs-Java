@@ -1,19 +1,12 @@
 package ar.com.hexacta.tpl.service.impl;
 
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.beans.factory.InitializingBean;
 
 import ar.com.hexacta.tpl.persistence.repository.DataInitRepository;
-import ar.com.hexacta.tpl.service.IDataInitService;
 
-public class DataInitServiceImpl implements IDataInitService {
+public class DataInitServiceImpl implements InitializingBean {
 
     private DataInitRepository repository;
-
-    @Override
-    @Transactional
-    public boolean initializeData() {
-        return this.getRepository().initializeData();
-    }
 
     public void setRepository(final DataInitRepository repository) {
         this.repository = repository;
@@ -22,5 +15,10 @@ public class DataInitServiceImpl implements IDataInitService {
     public DataInitRepository getRepository() {
         return repository;
     }
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+        this.getRepository().initializeData();
+	}
 
 }
