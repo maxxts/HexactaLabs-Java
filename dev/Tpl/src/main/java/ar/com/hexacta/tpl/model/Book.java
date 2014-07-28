@@ -1,6 +1,5 @@
 package ar.com.hexacta.tpl.model;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class Book extends Entity {
@@ -15,9 +14,9 @@ public class Book extends Entity {
     
     private String country;
 
-    private Set<BookCategory> bookCategories = new HashSet<BookCategory>(0);
+    private Set<BookCategory> bookCategories;
 
-    private Set<BookCopy> bookCopies = new HashSet<BookCopy>(0);
+    private Set<BookCopy> bookCopies;
 
     // Hibernate needs
     public Book() {

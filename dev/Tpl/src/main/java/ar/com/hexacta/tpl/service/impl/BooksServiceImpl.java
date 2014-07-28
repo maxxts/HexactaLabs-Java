@@ -25,6 +25,7 @@ public class BooksServiceImpl implements IBooksService {
         booksRepository.delete(book);
     }
     
+    @Transactional
     public void deleteBookById(String bookId) {
     	booksRepository.deleteById(bookId);
 	}
@@ -42,7 +43,6 @@ public class BooksServiceImpl implements IBooksService {
     }
     
     @Override
-    @Transactional
 	public Book findBook(String bookId) {
 		return booksRepository.findById(bookId);
 	}

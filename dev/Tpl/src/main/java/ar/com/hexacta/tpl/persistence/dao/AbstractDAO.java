@@ -29,22 +29,22 @@ public abstract class AbstractDAO<T> extends HibernateDaoSupport {
     }
 
     public void delete(final T entity) {
-        this.getHibernateTemplate().delete(entity);
+    	this.getSession().delete(entity);
     }
 
     public void update(final T entity) {
     	//TODO: validate existence
     	//this.getHibernateTemplate().getSessionFactory().getCurrentSession().merge(entity);
-    	T merged = this.getHibernateTemplate().merge(entity);
-        this.getHibernateTemplate().update(merged);
+    	T merged = (T)this.getSession().merge(entity);
+    	this.getSession().update(merged);
     }
 
     public void saveOrUpdate(final T entity) {
-        this.getHibernateTemplate().saveOrUpdate(entity);
+    	this.getSession().saveOrUpdate(entity);
     }
 
     public T findById(final Serializable id) {
-        return this.getHibernateTemplate().get(this.getPersistentClass(), id);
+        return (T)this.getSession().get(this.getPersistentClass(), id);
     }
 
     @SuppressWarnings(UNCHECKED)
@@ -54,12 +54,12 @@ public abstract class AbstractDAO<T> extends HibernateDaoSupport {
 
     public void deleteById(final Serializable id) {
         T obj = this.findById(id);
-        this.getHibernateTemplate().delete(obj);
+        this.getSession().delete(obj);
     }
 
     public void flushAndClear() {
-        this.getHibernateTemplate().flush();
-        this.getHibernateTemplate().clear();
+    	this.getSession().flush();
+    	this.getSession().clear();
     }
 
     protected Criteria createCriteria() {
