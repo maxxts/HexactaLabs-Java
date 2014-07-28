@@ -1,70 +1,47 @@
 <section id="createBook">
 	<div ng-controller="createBookCtrl">
 		<form novalidate id="createBookForm">
-			<div class="ContenedorContent">
-				<div id="feedbackPanel" />
-				<div class="ContenedorContentBox">
-					<h2>LIBROS</h2>
-					<div class="Contenedor fondoGrisClaro">
-						<div class="busquedas">
-							<fieldset>
-								<legend>
-									Crear nuevo libro
-								</legend>
+			<div id="feedbackPanel" />
+				<h2>LIBROS</h2>
+				<fieldset>
+					<legend>
+						Crear nuevo libro
+					</legend>
+						<label class="labelIzquierda">Titulo: </label> 
+						<input type="text" ng-model="newBook.name" ng-required="true" id="name" class="inputAjuste4" maxlength="150" />
+						<div class="Clear"></div>
 
-								<div class="busquedasBox">
-									<label class="labelIzquierda">Título: </label> 
-									<input type="text" ng-model="newBook.name" ng-required="true" id="name" class="inputAjuste4" maxlength="150" />
-									<div class="Clear"></div>
-								</div>
-								<div class="busquedasForm">
-									<label class="labelIzquierda">Descripción: </label> 
-									<input type="text" ng-model="newBook.description" ng-required="true" id="description" class="inputAjuste4" />
-									<div class="Clear"></div>
-								</div>
-								<div class="busquedasForm">
-									<label class="labelIzquierda">Editorial: </label> 
-									<input type="text" ng-model="newBook.publisher" ng-required="true" id="publisher" class="inputAjuste4" />
-									<div class="Clear"></div>
-								</div>
-								<div class="busquedasForm">
-									<label class="labelIzquierda"> </label> 
-									<select ng-model="newBook.country" ng-required="true">
-										<option>Argentina</option>
-										<option>Brasil</option>
-										<option>Uruguay</option>
-									</select>
-								</div>
+						<label class="labelIzquierda">Descripcion: </label> 
+						<input type="text" ng-model="newBook.description" ng-required="true" id="description" class="inputAjuste4" />
+						<div class="Clear"></div>
 
-								<br /> <br /> 
-								<span style="float: left"> 
-								<label class="labelIzquierda">Categorias: </label>
-								</span>
-								<div>
-									<div class="busquedasForm">
-										<div id="categories">
-											<span> 
-												<input class="radioButtons"	wicket:id="selectCheckBox" id="selectCheckBox1" type="checkbox" />
-												<div class="inputAjuste4">
-													<strong><span wicket:id="name" id="name" /></strong>
-												</div>
-											</span>
-										</div>
-									</div>
-								</div>
-								<div class="linea ajuste">
-									<input type="button" value="Volver" ng-click="backToHome()"/>
-									<div class="botones">
-										<input type="button" value="Cancelar" ng-click="reset()"/> 
-										<input type="button" value="Guardar" ng-click="save(newBook)" id="saveBookButton" />
-									</div>
-									<div class="Clear"></div>
-								</div>
-							</fieldset>
-						</div>
+						<label class="labelIzquierda">Editorial: </label> 
+						<input type="text" ng-model="newBook.publisher" ng-required="true" id="publisher" class="inputAjuste4" />
+						<div class="Clear"></div>
+
+						<label class="labelIzquierda">Pais: </label> 
+						<select ng-model="newBook.country" ng-required="true">
+							<option>Argentina</option>
+							<option>Brasil</option>
+							<option>Uruguay</option>
+						</select>
+
+					<br /> <br /> 
+					<span style="float: left"> 
+					<label class="labelIzquierda">Categorias: </label>
+					</span>
+					<div>
+						<span> 
+							<input class="radioButtons"	wicket:id="selectCheckBox" id="selectCheckBox1" type="checkbox" />
+								<strong><span wicket:id="name" id="name" /></strong>
+						</span>
 					</div>
-				</div>
-			</div>
+					<div class="btn-group">
+					  <button type="button" class="btn btn-default" ng-click="backToHome()">Volver</button> <!-- VOLVER Y CANCELAR NO HACEN LO MISMO? -->
+					  <button type="button" class="btn btn-default"ng-click="reset()">Cancelar</button>
+					  <button type="button" class="btn btn-default" ng-click="save(newBook)">Guardar</button>
+					</div>
+				</fieldset>
 		</form>
 	</div>
 </section>
