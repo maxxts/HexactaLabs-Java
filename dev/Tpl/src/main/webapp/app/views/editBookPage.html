@@ -1,37 +1,57 @@
 <section id="editBook">
-	<div ng-controller="editBookCtrl">
-		<h2>LIBROS</h2>
+	<div class="container jumbotron col-md-6 col-md-offset-3"
+		ng-controller="editBookCtrl">
+
 		<form novalidate id="bookDataEditionForm">
-			<fieldset>
-				<legend>
-					Editar Libro
-				</legend>
-						<label class="labelIzquierda">Título: </label> 
-						<input type="text"	id="name" class="inputAjuste4" maxlength="150" />
-						<div class="Clear"></div>
-						<label class="labelIzquierda">Descripción: </label> 
-						<input type="text" id="description" class="inputAjuste4" />
-						<div class="Clear"></div>
-						<label class="labelIzquierda">Editorial: </label> 
-						<input type="text" id="publisher" class="inputAjuste4" />
-						<div class="Clear"></div>
-						<label class="labelIzquierda"> País: </label> 
-						<select>
+			<div class="col-md-8 col-md-offset-2" id="feedbackPanel">
+				<fieldset>
+					<legend> Editar Libro </legend>
+					<!-- TITULO -->
+					<div class="form-group">
+						<label class="">T&iacute;tulo: </label> <input type="text"
+							id="name" class="form-control" maxlength="150" />
+					</div>
+					<!-- DESCRIPCION -->
+					<div class="form-group">
+						<label class="labelIzquierda">Descripci&oacute;n: </label> <input
+							type="text" id="description" class="form-control" />
+					</div>
+					<!-- EDITORIAL -->
+					<div class="form-group">
+						<label class="">Editorial: </label> <input type="text"
+							id="publisher" class="form-control" />
+					</div>
+					<!-- SELECT PAISES -->
+					<div class="form-group">
+						<label class=""> Pa&iacute;s: </label> <select
+							class="form-control">
 							<option>Argentina</option>
 							<option>Brasil</option>
 							<option>Uruguay</option>
-						</select> 
-						<br/>
-
-				<br /> <label class="labelIzquierda">Categorias: </label>
-				<div wicket:id="bookCategoriesListPanel"></div>
-					<div class="btn-group">
-					  <button type="button" class="btn btn-default" ng-click="backToHome()">Volver</button> <!-- VOLVER Y CANCELAR NO HACEN LO MISMO? -->
-					  <button type="button" class="btn btn-default" ng-click="reset()">Cancelar</button>
-					  <button type="button" class="btn btn-default" ng-click="save(newBook)">Guardar</button>
+						</select>
 					</div>
-				<div class="Clear"></div>
-			</fieldset>
+					<!-- CHECKBOX CATEGORIAS -->
+					<div class="form-group">
+						<label class="">Categorias: </label>
+						<!-- <div wicket:id="bookCategoriesListPanel"></div> -->
+						<input class="" id="selectCheckBox1" type="checkbox" />
+					</div>
+
+
+
+					<!-- BOTONES -->
+					<div class="col-md-8 col-md-offset-2">
+						<button type="button" class="btn btn-primary btn-block"
+							ng-click="save(newBook)">Guardar</button>
+						<button type="button" class="btn btn-default btn-block"
+							ng-click="reset()">Cancelar</button>
+						<button type="button" class="btn btn-default btn-block"
+							ng-click="backToHome()">Volver</button>
+					</div>
+
+
+				</fieldset>
+			</div>
 		</form>
 	</div>
 </section>
