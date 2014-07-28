@@ -79,7 +79,6 @@ public class BookWS{
 		try {			
 			Book book = parseBook(jsonBook);
 			book.setId(new Long(bookId));
-			System.out.println(book.getId());
 			bookService.updateBook(book);
 			
 		} catch (JsonParseException e) {
