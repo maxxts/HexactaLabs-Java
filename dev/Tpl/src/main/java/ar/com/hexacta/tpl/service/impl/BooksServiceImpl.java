@@ -34,7 +34,7 @@ public class BooksServiceImpl implements IBooksService {
     @Transactional
     public void updateBook(final Book book) {
         // TODO: Add validation logic
-    	booksRepository.update(book);
+    	booksRepository.save(book);
     }
     
     @Override

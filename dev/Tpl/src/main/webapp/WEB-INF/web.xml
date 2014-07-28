@@ -40,7 +40,7 @@
 
 	<filter-mapping>
 		<filter-name>OpenSessionInViewFilter</filter-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/rest/*</url-pattern>
 	</filter-mapping>
 
 	<error-page>
@@ -64,6 +64,6 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CXFServlet</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
 </web-app>

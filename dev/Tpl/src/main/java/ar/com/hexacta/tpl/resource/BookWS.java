@@ -34,21 +34,21 @@ public class BookWS{
     BooksServiceImpl bookService;
 
 	@GET
-	@Path("/books")
+	@Path("/")
 	@Produces("application/json")
 	public List<Book> findAllBooks() {
 		return bookService.findAllBooks();
 	}
 	
 	@GET
-	@Path("/books/{bookId}")
+	@Path("/{bookId}")
 	@Produces("application/json")
 	public Book findBook(@PathParam("bookId") final String bookId) {
 		return bookService.findBook(bookId);
 	}
 
 	@POST
-	@Path("/books")
+	@Path("/")
 	@Consumes("application/json")
 	public Response createBook(@Multipart(value = "book2", type = "application/json") String jsonBook) {
 		try {
@@ -73,7 +73,7 @@ public class BookWS{
 	}
 
 	@PUT
-	@Path("/books/{bookId}")
+	@Path("/{bookId}")
 	@Consumes("application/json")
 	public Response updateBook(@PathParam("bookId") final String bookId, String jsonBook) {
 		try {			
@@ -98,7 +98,7 @@ public class BookWS{
 	}
 
 	@DELETE
-	@Path("/books/{bookId}")
+	@Path("/{bookId}")
 	public void deleteBook(@PathParam("bookId") final String bookId) {
 		bookService.deleteBookById(bookId);
 	}
