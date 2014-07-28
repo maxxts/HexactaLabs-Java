@@ -2,7 +2,6 @@ package ar.com.hexacta.tpl.service.impl;
 
 import java.util.List;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.hexacta.tpl.model.Book;
@@ -17,7 +16,7 @@ public class BooksServiceImpl implements IBooksService {
     @Transactional
     public void createBook(final Book book) {
         // TODO: Add validation logic
-        booksRepository.save(book);
+    	booksRepository.save(book);
     }
 
     @Override
@@ -34,7 +33,7 @@ public class BooksServiceImpl implements IBooksService {
     @Transactional
     public void updateBook(final Book book) {
         // TODO: Add validation logic
-        booksRepository.save(book);
+    	booksRepository.update(book);
     }
     
     @Override
