@@ -9,6 +9,8 @@
 .btn-hexacta:hover,
 .btn-hexacta:focus,
 .btn-hexacta:active,
+.btn-hexacta:link,
+.btn-hexacta:visited,
 .btn-hexacta.active,
 .open > .dropdown-toggle.btn-hexacta {
   color: #fff;
@@ -33,4 +35,12 @@ fieldset[disabled] .btn-hexacta:active,
 fieldset[disabled] .btn-hexacta.active {
   background-color: #00CCBB;
   border-color: #00BAAB;
+}
+
+button:active {
+	outline: none !important;
+}
+
+button:focus {
+	outline: none !important;
 }
