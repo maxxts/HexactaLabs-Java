@@ -1,23 +1,21 @@
-<section id="bookListPage" class="container">
+<section id="bookListPage">
 <div ng-controller="bookListCtrl">
 <div>
 	<div id="feedbackPanel" />
-			<div>
-				<form class="form-inline">
+			<div class="row">
+				<form role="form" class="col-md-12">
 					<div class="form-group col-md-9">
-						<div class="input-group col-sm-12">
-							<input type="text" class="form-control" placeholder="Ingrese libro a buscar">
+						<div class="input-group col-md-12">
+							<input type="text" class="form-control" placeholder="Ingrese libro a buscar" ng-model="query">
 							<span class="input-group-btn">
 								<button class="btn btn-primary">Buscar!</button>
 							</span>
 						</div>				
 					</div>
 					<div class="form-group col-md-3">
-						<button type="button" class="btn btn-primary col-sm-12" ng-click="linkToCreateBook()">Crear Nuevo Libro</button>
+						<button type="button" class="btn btn-primary col-md-12" ng-click="linkToCreateBook()">Crear Nuevo Libro</button>
 					</div>
 				</form>
-				<!-- Agregar espacio entre los divs y sacar estos brs -->
-				<br /><br /><br />
 			</div>
 			
 			<div class="col-md-12">
@@ -33,21 +31,21 @@
 							<th class="text-center" colspan="3"> Acciones </th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody ng-repeat="book in books | filter:query">
 						<tr>						
 							<!-- Fields -->
 							<!-- Hacer los td con vertical-align:middle -->							
 							<td>
-								Titulo <!-- {{book.name}} --> 
+								{{book.name }} 
 							</td>
 							<td>
-								Descripcion <!-- {{book.description}}  -->
+								{{book.description}}
 							</td>
 							<td>
-								Editorial <!--  {{book.publisher}}  -->
+								{{book.publisher}}
 							</td>
 							<td>
-								Categorias <!-- {{book.categories}}  -->
+								{{book.bookCategories}}
 							</td>
 							<!-- End Fields -->
 	
