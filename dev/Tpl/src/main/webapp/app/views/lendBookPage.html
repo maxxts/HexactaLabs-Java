@@ -1,20 +1,29 @@
 <section id="lendBook">
-	<div ng-controller="lendBookCtrl">
-		<h2>LIBROS</h2>
-			<form id="bookLendingForm">
-			<br> 
-			<label>
-				<h5>
-					Prestar libro al usuario
-				</h5>
-			</label> 
-			<br /> <br />
-				<div class="btn-group">
-				  <button type="button" class="btn btn-default" ng-click="backToHome()">Volver</button>
-				  <button type="button" class="btn btn-default" ng-click="reset()">Cancelar</button>
-				  <button type="button" class="btn btn-default" ng-click="save(newBook)">Prestar</button>
+	<div class="container jumbotron col-md-6 col-md-offset-3"
+		ng-controller="lendBookCtrl">
+		<form novalidate id="bookLendingForm">
+			<div class="col-md-8 col-md-offset-2" id="feedbackPanel" />
+			<fieldset>
+				<legend>Prestar un libro</legend>
+				<!-- SELECT USUARIOS -->
+				<div class="form-group">
+					<label class="">Prestar a: </label> <select class="form-control" ng-required="true">
+						<option>Dummy User 1</option>
+						<option>Dummy User 2</option>
+						<option>Dummy User 3</option>
+					</select>
 				</div>
-			<div class="Clear"></div>
+				<!-- BOTONES -->
+				<div class="col-md-8 col-md-offset-2">
+					<button type="button" class="btn btn-hexacta-primary btn-block"
+						ng-click="save(newBook)">Prestar</button>
+					<!-- <button type="button" class="btn btn-default btn-block"
+						ng-click="reset()">Cancelar</button> -->
+					<button type="button" class="btn btn-default btn-block"
+						ng-click="backToHome()">Volver</button>
+				</div>
+			</fieldset>
 		</form>
 	</div>
 </section>
+
