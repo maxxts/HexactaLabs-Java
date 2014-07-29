@@ -8,23 +8,26 @@
 					<legend> Editar Libro </legend>
 					<!-- TITULO -->
 					<div class="form-group">
-						<label class="">T&iacute;tulo: </label> <input required
-							type="text" id="name" class="form-control" maxlength="150" />
+						<label class="">T&iacute;tulo: </label> <input type="text"
+							id="name" class="form-control" maxlength="150"
+							ng-model="currentBook.name" />
 					</div>
 					<!-- DESCRIPCION -->
 					<div class="form-group">
 						<label class="labelIzquierda">Descripci&oacute;n: </label> <input
-							required type="text" id="description" class="form-control" />
+							type="text" id="description" class="form-control"
+							ng-model="currentBook.description" />
 					</div>
 					<!-- EDITORIAL -->
 					<div class="form-group">
-						<label class="">Editorial: </label> <input required type="text"
-							id="publisher" class="form-control" />
+						<label class="">Editorial: </label> <input
+							ng-model="currentBook.publisher" type="text" id="publisher"
+							class="form-control" />
 					</div>
 					<!-- SELECT PAISES -->
 					<div class="form-group">
-						<label class=""> Pa&iacute;s: </label> <select required
-							class="form-control">
+						<label class=""> Pa&iacute;s: </label> <select
+							ng-model="currentBook.country" class="form-control">
 							<option>Argentina</option>
 							<option>Brasil</option>
 							<option>Uruguay</option>
