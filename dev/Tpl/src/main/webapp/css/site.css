@@ -15,7 +15,6 @@
 .open > .dropdown-toggle.btn-hexacta-primary {
   color: #fff;
   background-color: #008080;
-<<<<<<< HEAD
   border-color: #007a74;
 }
 .btn-hexacta:hover,
@@ -26,7 +25,7 @@
 
 .btn-hexacta.active,
 .open > .dropdown-toggle.btn-hexacta {
-=======
+
   border-color: #007070;
 }
 
@@ -50,10 +49,12 @@ fieldset[disabled] .btn-hexacta-primary.active {
 }
 
 .btn-hexacta-green {
+
   color: #fff;
   background-color: #228B22;
   border-color: #007500;
 }
+
 .btn-hexacta-green:hover,
 .btn-hexacta-green:focus,
 .btn-hexacta-green:active,
@@ -61,7 +62,6 @@ fieldset[disabled] .btn-hexacta-primary.active {
 .btn-hexacta-green:visited,
 .btn-hexacta-green.active,
 .open > .dropdown-toggle.btn-hexacta-green {
->>>>>>> c8a13802fc069fa649534534d87c0140f0dcbc62
   color: #fff;
   background-color: #007500;
   border-color: #006400;
@@ -94,8 +94,13 @@ button:focus {
 	outline: none !important;
 }
 
-<<<<<<< HEAD
-=======
+/* Nuevo color standard  RGB(107,155,32)*/
+
+textarea { resize:both; } /* none|horizontal|vertical|both */
+
+textarea.vert { resize:vertical; }
+
+textarea.noResize { resize:none; }
 
 /* Nuevo color standard  RGB(107,155,32)*/
->>>>>>> c8a13802fc069fa649534534d87c0140f0dcbc62
+
