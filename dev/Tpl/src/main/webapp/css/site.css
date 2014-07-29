@@ -91,5 +91,11 @@ button:focus {
 	outline: none !important;
 }
 
+textarea { resize:both; } /* none|horizontal|vertical|both */
+
+textarea.vert { resize:vertical; }
+
+textarea.noResize { resize:none; }
+
 /* Nuevo color standard  RGB(107,155,32)*/
 

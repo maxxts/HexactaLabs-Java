@@ -14,9 +14,10 @@
 					</div>
 					<!-- DESCRIPCION -->
 					<div class="form-group">
-						<label class="labelIzquierda">Descripci&oacute;n: </label> <input
-							type="text" id="description" class="form-control"
-							ng-model="currentBook.description" />
+						<label class="labelIzquierda">Descripci&oacute;n: </label>
+						<textarea rows="3" id="description"
+							class="form-control noResize"
+							ng-model="currentBook.description" ng-required="true"> </textarea>
 					</div>
 					<!-- EDITORIAL -->
 					<div class="form-group">
