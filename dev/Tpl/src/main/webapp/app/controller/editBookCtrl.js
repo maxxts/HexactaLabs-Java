@@ -1,4 +1,4 @@
-booksApp.controller('editBookCtrl', function ($scope,$location,$rootScope,$routeParams) {
+booksApp.controller('editBookCtrl', function ($scope,$location,$rootScope,$routeParams, $http) {
 	$scope.books = $rootScope.books;
 	
 	$scope.backToHome = function(){
@@ -16,7 +16,7 @@ booksApp.controller('editBookCtrl', function ($scope,$location,$rootScope,$route
 
     $scope.reset();
     
-    $scope.bookId = $routeParams;
+    $scope.bookId = $routeParams.bookId;
     $scope.currentBook = null;
     
     $http({
@@ -31,6 +31,6 @@ booksApp.controller('editBookCtrl', function ($scope,$location,$rootScope,$route
 		}
 
 	}).error(function(data, status, headers, config){
-		console.log("An Error occurred while trying to get all books");
+		console.log("An Error occurred while trying to get book:" + $scope.bookId);
 	});
 });
