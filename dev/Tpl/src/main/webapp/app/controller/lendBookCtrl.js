@@ -5,8 +5,4 @@ booksApp.controller('lendBookCtrl', function ($scope,$location,$rootScope) {
     	$location.path("/");
     };
     
-    $scope.reset = function(){
-    	$location.path("/");
-    };
-    
 });
