@@ -1,38 +1,74 @@
 @charset "utf-8";
 /* CSS Document */
 
-.btn-hexacta {
+.btn-hexacta-primary {
   color: #fff;
   background-color: #009292;
   border-color: #008080;
 }
-.btn-hexacta:hover,
-.btn-hexacta:focus,
-.btn-hexacta:active,
-.btn-hexacta:link,
-.btn-hexacta:visited,
-.btn-hexacta.active,
-.open > .dropdown-toggle.btn-hexacta {
+.btn-hexacta-primary:hover,
+.btn-hexacta-primary:focus,
+.btn-hexacta-primary:active,
+.btn-hexacta-primary:link,
+.btn-hexacta-primary:visited,
+.btn-hexacta-primary.active,
+.open > .dropdown-toggle.btn-hexacta-primary {
   color: #fff;
   background-color: #008080;
   border-color: #007070;
 }
 
-.btn-hexacta.disabled,
-.btn-hexacta[disabled],
-fieldset[disabled] .btn-hexacta,
-.btn-hexacta.disabled:hover,
-.btn-hexacta[disabled]:hover,
-fieldset[disabled] .btn-hexacta:hover,
-.btn-hexacta.disabled:focus,
-.btn-hexacta[disabled]:focus,
-fieldset[disabled] .btn-hexacta:focus,
-.btn-hexacta.disabled:active,
-.btn-hexacta[disabled]:active,
-fieldset[disabled] .btn-hexacta:active,
-.btn-hexacta.disabled.active,
-.btn-hexacta[disabled].active,
-fieldset[disabled] .btn-hexacta.active {
+.btn-hexacta-primary.disabled,
+.btn-hexacta-primary[disabled],
+fieldset[disabled] .btn-hexacta-primary,
+.btn-hexacta-primary.disabled:hover,
+.btn-hexacta-primary[disabled]:hover,
+fieldset[disabled] .btn-hexacta-primary:hover,
+.btn-hexacta-primary.disabled:focus,
+.btn-hexacta-primary[disabled]:focus,
+fieldset[disabled] .btn-hexacta-primary:focus,
+.btn-hexacta-primary.disabled:active,
+.btn-hexacta-primary[disabled]:active,
+fieldset[disabled] .btn-hexacta-primary:active,
+.btn-hexacta-primary.disabled.active,
+.btn-hexacta-primary[disabled].active,
+fieldset[disabled] .btn-hexacta-primary.active {
+  background-color: #00CCBB;
+  border-color: #00BAAB;
+}
+
+.btn-hexacta-green {
+  color: #fff;
+  background-color: #228B22;
+  border-color: #007500;
+}
+.btn-hexacta-green:hover,
+.btn-hexacta-green:focus,
+.btn-hexacta-green:active,
+.btn-hexacta-green:link,
+.btn-hexacta-green:visited,
+.btn-hexacta-green.active,
+.open > .dropdown-toggle.btn-hexacta-green {
+  color: #fff;
+  background-color: #007500;
+  border-color: #006400;
+}
+
+.btn-hexacta-green.disabled,
+.btn-hexacta-green[disabled],
+fieldset[disabled] .btn-hexacta-green,
+.btn-hexacta-green.disabled:hover,
+.btn-hexacta-green[disabled]:hover,
+fieldset[disabled] .btn-hexacta-green:hover,
+.btn-hexacta-green.disabled:focus,
+.btn-hexacta-green[disabled]:focus,
+fieldset[disabled] .btn-hexacta-green:focus,
+.btn-hexacta-green.disabled:active,
+.btn-hexacta-green[disabled]:active,
+fieldset[disabled] .btn-hexacta-green:active,
+.btn-hexacta-green.disabled.active,
+.btn-hexacta-green[disabled].active,
+fieldset[disabled] .btn-hexacta-green.active {
   background-color: #00CCBB;
   border-color: #00BAAB;
 }
@@ -44,3 +80,5 @@ button:active {
 button:focus {
 	outline: none !important;
 }
+
+/* Nuevo color standard  RGB(107,155,32)*/
