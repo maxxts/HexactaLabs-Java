@@ -23,23 +23,9 @@
        http://www.springframework.org/schema/security/spring-security-3.0.2.xsd
        http://www.springframework.org/schema/lang
        http://www.springframework.org/schema/lang/spring-lang-2.0.xsd">    
+	 
+	 <context:annotation-config />
+    
+	<context:component-scan base-package="ar.com.hexacta.tpl" />
 
-	
-	<bean id="db.dao.book" class="ar.com.hexacta.tpl.persistence.dao.BookDAO">		
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	
-	<bean id="db.dao.bookCategory" class="ar.com.hexacta.tpl.persistence.dao.BookCategoryDAO">		
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-
-	
-	<bean id="db.dao.generic" class="ar.com.hexacta.tpl.persistence.dao.GenericDAO">		
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	<bean id="db.dao.dataInit" class="ar.com.hexacta.tpl.persistence.dao.DataInitDAO">
-		<property name="bookDAO" ref="db.dao.book"/>
-		<property name="bookCategoryDAO" ref="db.dao.bookCategory"/>
-		<property name="genericDAO" ref="db.dao.generic"/>
-	</bean>			
 </beans>

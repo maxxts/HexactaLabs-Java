@@ -23,17 +23,10 @@
        http://www.springframework.org/schema/security/spring-security-3.0.2.xsd
        http://www.springframework.org/schema/lang
        http://www.springframework.org/schema/lang/spring-lang-2.0.xsd">
-       
-    <bean id="service.books" class="ar.com.hexacta.tpl.service.impl.BooksServiceImpl">
-		<property name="bookRepository" ref="db.dao.book"/>
-	</bean> 
-	
-	<bean id="service.categories" class="ar.com.hexacta.tpl.service.impl.BookCategoriesServiceImpl">
-		<property name="categoriesRepository" ref="db.dao.bookCategory"/>
-	</bean>     
-	
-	<bean id="service.dataInit" class="ar.com.hexacta.tpl.service.impl.DataInitServiceImpl">
-		<property name="repository" ref="db.dao.dataInit"/>
-	</bean>
-
+      
+ 	
+    <context:annotation-config />
+    
+	<context:component-scan base-package="ar.com.hexacta.tpl" />
+   
 </beans>

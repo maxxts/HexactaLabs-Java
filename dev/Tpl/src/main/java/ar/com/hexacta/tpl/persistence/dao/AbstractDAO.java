@@ -4,13 +4,15 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import org.apache.cxf.service.invoker.SessionFactory;
 import org.hibernate.Criteria;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 public abstract class AbstractDAO<T> extends HibernateDaoSupport {
 
     private static final String UNCHECKED = "unchecked";
-
+    
     private final transient Class<T> persistentClass;
 
     @SuppressWarnings(UNCHECKED)
@@ -61,6 +63,11 @@ public abstract class AbstractDAO<T> extends HibernateDaoSupport {
 
     protected Criteria createCriteria() {
         return this.getSession().createCriteria(this.getPersistentClass());
+    }
+    
+    @Autowired
+    public void setSectionFactory(org.hibernate.SessionFactory sessionFactory){
+    	super.setSessionFactory(sessionFactory);
     }
 
 }

@@ -17,21 +17,25 @@ import org.apache.cxf.jaxrs.ext.multipart.Multipart;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ar.com.hexacta.tpl.model.Book;
+import ar.com.hexacta.tpl.service.IBooksService;
 import ar.com.hexacta.tpl.service.impl.BooksServiceImpl;
 
 /**
  * @author lnapoli
  * 
  */
+@Service
 public class BookWS{
 
     public BookWS() {
 
     }
-    
-    BooksServiceImpl bookService;
+    @Autowired
+    private IBooksService bookService;
 
 	@GET
 	@Path("/")
@@ -110,7 +114,7 @@ public class BookWS{
 		return newBook;
 	}
 	
-	public BooksServiceImpl getBookService() {
+	public IBooksService getBookService() {
 		return bookService;
 	}
 

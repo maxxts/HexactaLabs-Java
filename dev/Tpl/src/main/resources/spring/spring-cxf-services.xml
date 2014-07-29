@@ -24,13 +24,9 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
 	</jaxrs:server>
   
   
-  
-
    
 	<bean id="booksWS" class="ar.com.hexacta.tpl.resource.BookWS">
-		<property name="bookService">
-			<ref bean="service.books" />
-		</property>
+
 	</bean>
 	
 </beans>
