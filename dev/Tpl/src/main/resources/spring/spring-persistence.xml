@@ -28,8 +28,10 @@
 <!--     <context:annotation-config/> -->
 <!--     <aop:aspectj-autoproxy/>  -->
    	
+   	<context:annotation-config />
+	<context:component-scan base-package="ar.com.hexacta.tpl" />
+   	
 	<import resource="spring-persistence-db-source.xml"/>
 	<import resource="spring-persistence-transaction.xml"/>
-	<import resource="spring-persistence-db-daos.xml"/>
 		
 </beans>       	

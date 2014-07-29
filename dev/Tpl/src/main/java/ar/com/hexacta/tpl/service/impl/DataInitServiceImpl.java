@@ -1,11 +1,15 @@
 package ar.com.hexacta.tpl.service.impl;
 
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ar.com.hexacta.tpl.persistence.repository.DataInitRepository;
 
+@Service
 public class DataInitServiceImpl implements InitializingBean {
 
+	@Autowired
     private DataInitRepository repository;
 
     public void setRepository(final DataInitRepository repository) {
