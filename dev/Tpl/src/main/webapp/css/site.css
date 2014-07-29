@@ -3,8 +3,8 @@
 
 .btn-hexacta {
   color: #fff;
-  background-color: #008080;
-  border-color: #007a74;
+  background-color: #009292;
+  border-color: #008080;
 }
 .btn-hexacta:hover,
 .btn-hexacta:focus,
@@ -14,8 +14,8 @@
 .btn-hexacta.active,
 .open > .dropdown-toggle.btn-hexacta {
   color: #fff;
-  background-color: #01796f;
-  border-color: #007067;
+  background-color: #008080;
+  border-color: #007070;
 }
 
 .btn-hexacta.disabled,
