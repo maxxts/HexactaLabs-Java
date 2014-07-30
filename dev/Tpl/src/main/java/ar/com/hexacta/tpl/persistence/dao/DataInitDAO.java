@@ -3,6 +3,8 @@ package ar.com.hexacta.tpl.persistence.dao;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.hexacta.tpl.model.Book;
@@ -14,12 +16,15 @@ import ar.com.hexacta.tpl.model.builder.BookCategoryBuilder;
 import ar.com.hexacta.tpl.model.builder.BookCopyBuilder;
 import ar.com.hexacta.tpl.persistence.repository.DataInitRepository;
 
+@Repository
 public class DataInitDAO implements DataInitRepository {
-	private static final Logger LOG = Logger.getLogger(DataInitDAO.class); 
+	private static final Logger LOG = Logger.getLogger(DataInitDAO.class);
+	
+	@Autowired
     private BookDAO bookDAO;
-
+	@Autowired
     private BookCategoryDAO bookCategoryDAO;
-
+	@Autowired
     private GenericDAO genericDAO;
 
     @Transactional
