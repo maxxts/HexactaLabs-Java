@@ -7,18 +7,6 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 	};
 	$scope.linkToDeleteBook=function(bookId){
 		$location.path("/deleteBook/"+bookId);
-	/*	var jsonBook = angular.toJson(bookId);
-    	$http.delete('/Tpl/rest/books', jsonBook).success(function(data, status, headers, config){
-    		if(status = 200)
-    		{
-    	    	//Ok message and go back
-    	    	alert('ok');
-    	    	$location.path("/");
-    		}
-    	}).error(function(data, status, headers, config){
-    		console.log("An Error occurred while trying to delete a book");
-    	}); --------------------------> ESTO FUE UNA PRUEBA A VER SI ANDABA ASI EL DELETE, PERO SE VE QUE NO
-    */
     };
     
 	$scope.linkToLendBook=function(bookId){
