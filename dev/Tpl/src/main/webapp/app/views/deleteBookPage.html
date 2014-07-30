@@ -1,22 +1,18 @@
-<section id="lendBook">
+<section id="deleteBook">
 	<div class="container jumbotron col-md-6 col-md-offset-3"
-		ng-controller="lendBookCtrl">
+		ng-controller="deleteBookCtrl">
 		<form novalidate id="bookLendingForm">
 			<div class="col-md-8 col-md-offset-2" id="feedbackPanel" />
 			<fieldset>
-				<legend>Prestar un libro</legend>
+				<legend>BORRAR un libro</legend>
 				<!-- SELECT USUARIOS -->
 				<div class="form-group">
-					<label class="">Prestar a: </label> <select class="form-control" ng-required="true">
-						<option>Dummy User 1</option>
-						<option>Dummy User 2</option>
-						<option>Dummy User 3</option>
-					</select>
+					<label class="">¿Seguro que quiere borrar?</label>
 				</div>
 				<!-- BOTONES -->
 				<div class="col-md-8 col-md-offset-2">
 					<button type="button" class="btn btn-hexacta-primary btn-block"
-						ng-click="save(newBook)">Prestar</button>
+						ng-click="borrar(newBook)">BORRAR</button>
 					<!-- <button type="button" class="btn btn-default btn-block"
 						ng-click="reset()">Cancelar</button> -->
 					<button type="button" class="btn btn-default btn-block"

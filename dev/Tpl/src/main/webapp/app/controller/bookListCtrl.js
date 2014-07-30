@@ -7,14 +7,18 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 	};
 	$scope.linkToDeleteBook=function(bookId){
 		$location.path("/deleteBook/"+bookId);
-	};
+    /*	$rootScope.books.splice(bookId, 1);
+    	console.log("Intenta borrar");
+    	$location.path("/");
+   */ };
+    
 	$scope.linkToLendBook=function(bookId){
 		$location.path("/lendBook/"+bookId);
 	};
 	
 	$http({
 		method : 'GET',
-		url: '/Tpl/rest/bookWS/getBooks',
+		url: '/Tpl/rest/books',
 		headers : {'Content-type' : 'application/json', 'Accept' : 'application/json'}
 	}).success(function(data, status, headers, config){
 
