@@ -102,5 +102,12 @@ textarea.vert { resize:vertical; }
 
 textarea.noResize { resize:none; }
 
-/* Nuevo color standard  RGB(107,155,32)*/
+/* PARA VALIDACIONES CON ANGULARJS */
+.ng-invalid.ng-dirty {
+    border-color: red;
+}
+
+.ng-valid.ng-dirty {
+    border-color: green;
+}
 
