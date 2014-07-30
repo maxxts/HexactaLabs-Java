@@ -2,7 +2,8 @@
 	<div class="container jumbotron col-md-6 col-md-offset-3"
 		ng-controller="editBookCtrl">
 
-		<form name="editBookForm" novalidate id="bookDataEditionForm">
+		<form name="editBookForm" novalidate id="bookDataEditionForm"
+			ng-submit="editBookForm.$valid && save(newBook)">
 			<div class="col-md-8 col-md-offset-2" id="feedbackPanel">
 				<fieldset>
 					<legend> Editar Libro </legend>
@@ -10,14 +11,13 @@
 					<div class="form-group">
 						<label class="">T&iacute;tulo: </label> <input required
 							type="text" id="name" class="form-control" maxlength="150"
-							 ng-model="currentBook.name"/>
+							ng-model="currentBook.name" />
 					</div>
 
 					<!-- DESCRIPCION -->
 					<div class="form-group">
 						<label class="labelIzquierda">Descripci&oacute;n: </label>
-						<textarea rows="3" id="description"
-							class="form-control noResize"
+						<textarea rows="3" id="description" class="form-control noResize"
 							ng-model="currentBook.description" ng-required="true"> </textarea>
 					</div>
 					<!-- EDITORIAL -->
@@ -52,8 +52,7 @@
 
 					<!-- BOTONES -->
 					<div class="col-md-8 col-md-offset-2">
-						<button type="button" class="btn btn-hexacta-primary btn-block"
-							ng-click="editBookForm.$valid && save(newBook)">Guardar</button>
+						<button type="button" class="btn btn-hexacta-primary btn-block">Guardar</button>
 						<button type="button" class="btn btn-default btn-block"
 							ng-click="reset()">Limpiar</button>
 						<button type="button" class="btn btn-default btn-block"
