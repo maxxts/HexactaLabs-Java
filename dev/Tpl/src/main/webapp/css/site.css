@@ -103,7 +103,7 @@ textarea.vert { resize:vertical; }
 textarea.noResize { resize:none; }
 
 /* PARA VALIDACIONES CON ANGULARJS */
-.ng-invalid.ng-dirty {
+input.ng-invalid.ng-dirty {
     border-color: red;
 }
 
