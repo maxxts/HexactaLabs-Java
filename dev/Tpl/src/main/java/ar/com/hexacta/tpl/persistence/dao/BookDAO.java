@@ -4,10 +4,14 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.hexacta.tpl.model.Book;
 import ar.com.hexacta.tpl.persistence.repository.BookRepository;
 
+@Repository
 public class BookDAO extends AbstractDAO<Book> implements BookRepository {
 
     @SuppressWarnings("unchecked")

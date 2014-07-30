@@ -15,5 +15,7 @@ public interface IBooksService {
     void updateBook(final Book book);
 
     void deleteBook(final Book book);
+    
+    void deleteBookById(String bookId) ;
 
 }

@@ -22,13 +22,13 @@
 					</div>
 					<!-- EDITORIAL -->
 					<div class="form-group">
-						<label class="">Editorial: </label> <input
+						<label class="">Editorial: </label> <input ng-required="true"
 							ng-model="currentBook.publisher" type="text" id="publisher"
 							class="form-control" />
 					</div>
 					<!-- SELECT PAISES -->
 					<div class="form-group">
-						<label class=""> Pa&iacute;s: </label> <select
+						<label class=""> Pa&iacute;s: </label> <select ng-required="true"
 							ng-model="currentBook.country" class="form-control">
 							<option>Argentina</option>
 							<option>Brasil</option>
@@ -53,14 +53,12 @@
 					<!-- BOTONES -->
 					<div class="col-md-8 col-md-offset-2">
 						<button type="button" class="btn btn-hexacta-primary btn-block"
-							ng-click="save(newBook)">Guardar</button>
+							ng-click="editBookForm.$valid && save(newBook)">Guardar</button>
 						<button type="button" class="btn btn-default btn-block"
 							ng-click="reset()">Limpiar</button>
 						<button type="button" class="btn btn-default btn-block"
 							ng-click="backToHome()">Volver</button>
 					</div>
-
-
 				</fieldset>
 			</div>
 		</form>
