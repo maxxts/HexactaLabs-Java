@@ -7,15 +7,8 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 	};
 	$scope.linkToDeleteBook=function(bookId){
 		$location.path("/deleteBook/"+bookId);
-<<<<<<< HEAD
     };
-=======
-    /*	$rootScope.books.splice(bookId, 1);
-    	console.log("Intenta borrar");
-    	$location.path("/");
-   */ };
->>>>>>> e26b41f45eb7171933fe36e97b223f068381960f
-    
+ 
 	$scope.linkToLendBook=function(bookId){
 		$location.path("/lendBook/"+bookId);
 	};
