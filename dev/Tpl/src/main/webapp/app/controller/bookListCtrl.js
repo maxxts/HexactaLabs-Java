@@ -16,6 +16,10 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 		$location.path("/lendBook/"+bookId);
 	};
 	
+	$scope.modifyModal=function(book){
+		$scope.titleComments = book.name;
+	};
+	
 	$http({
 		method : 'GET',
 		url: '/Tpl/rest/books',
