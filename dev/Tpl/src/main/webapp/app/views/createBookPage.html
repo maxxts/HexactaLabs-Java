@@ -13,10 +13,9 @@
 				</div>
 				<!-- DESCRIPCION -->
 				<div class="form-group">
-					<label class="">Descripci&oacute;n: </label> <input type="text"
-						class="form-control" ng-model="newBook.description"
-						ng-required="true" id="description" />
-
+					<label class="">Descripci&oacute;n: </label>
+					<textarea rows="3" id="description" class="form-control noResize"
+						ng-model="newBook.description" ng-required="true"> </textarea>
 				</div>
 				<!-- EDITORIAL -->
 				<div class="form-group">
@@ -47,7 +46,7 @@
 				</div>
 				<!-- BOTONES -->
 				<div class="col-md-8 col-md-offset-2">
-					<button type="button" class="btn btn-hexacta-primary btn-block"
+					<button type="button" class="btn btn-hexacta-primary btn-block" ng-show="newBook.name.lenght"
 						ng-click="save(newBook)">Guardar</button>
 					<button type="button" class="btn btn-default btn-block"
 						ng-click="reset()">Limpiar</button>

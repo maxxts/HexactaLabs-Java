@@ -18,6 +18,10 @@ booksApp.config(['$routeProvider', '$locationProvider', function ($routeProvider
             templateUrl: 'app/views/lendBookPage.html',
             controller: 'lendBookCtrl'
         }).
+        when('/deleteBook/:bookid', {
+            templateUrl: 'app/views/deleteBookPage.html',
+            controller: 'deleteBookCtrl'
+        }).
 		otherwise({
 			redirectTo: '/'
 		});
