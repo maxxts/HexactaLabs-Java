@@ -1,4 +1,5 @@
 booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http) {
+	
 	$scope.linkToCreateBook=function(){
 		$location.path("/createBook");
 	};
@@ -17,7 +18,7 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 	};
 	
 	$scope.modifyModal=function(book){
-		$scope.titleComments = book.name;
+		$scope.selectedBook = book;
 	};
 	
 	$http({
@@ -38,4 +39,18 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 	});
 	
 	
+});
+
+booksApp.controller('commentController', function(){
+	this.comment = {};
+	this.addComment = function(book){
+		console.log("HOLA");
+		//TODO: cambiar esto cuando ya esten implementados los comentarios en el backend
+		alert(book.comments);
+		if (!book.comments)
+			book.comments = [];
+		
+		book.comments.push(this.comment);
+		this.comment = {};
+	};
 });
