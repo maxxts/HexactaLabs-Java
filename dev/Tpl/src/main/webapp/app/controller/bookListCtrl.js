@@ -44,9 +44,9 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 booksApp.controller('commentController', function(){
 	this.comment = {};
 	this.addComment = function(book){
-		console.log("HOLA");
+		alert("HOLA");
 		//TODO: cambiar esto cuando ya esten implementados los comentarios en el backend
-		alert(book.comments);
+	
 		if (!book.comments)
 			book.comments = [];
 		

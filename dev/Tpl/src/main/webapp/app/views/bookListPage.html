@@ -67,9 +67,18 @@
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							<h4 class="modal-title" id="myModalLabel">{{selectedBook.name}}</h4>
+							<h3 class="modal-title" id="myModalLabel">{{selectedBook.name}}</h3>
 						</div>
-						<div class="modal-body">Ac&aacute; van a ir los comentarios
+						<div class="modal-body">
+						
+							<div>
+								<h4>{{selectedBook.description}}</h4>
+								<h4>{{selectedBook.publisher}}</h4>
+								<h4>{{selectedBook.country}}</h4>
+							</div>
+							
+							<!-- TODO: en algun momento se va a agregar una foto para poner aca -->
+							Ac&aacute; van a ir los comentarios
 							<blockquote ng-repeat="comment in selectedBook.comments">
 								{{comment.text}}
 								<cite>Por: {{comment.author}}</cite>
