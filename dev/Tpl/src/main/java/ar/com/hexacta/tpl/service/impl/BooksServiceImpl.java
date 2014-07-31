@@ -30,7 +30,7 @@ public class BooksServiceImpl implements IBooksService {
     }
     
     @Transactional
-    public void deleteBookById(String bookId) {
+    public void deleteBookById(Long bookId) {
     	booksRepository.deleteById(bookId);
 	}
 
@@ -47,7 +47,7 @@ public class BooksServiceImpl implements IBooksService {
     }
     
     @Override
-	public Book findBook(String bookId) {
+	public Book findBook(Long bookId) {
 		return booksRepository.findById(bookId);
 	}
 
