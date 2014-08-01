@@ -20,7 +20,7 @@ public class BooksServiceImpl implements IBooksService {
     @Transactional
     public void createBook(final Book book) {
         // TODO: Add validation logic
-    	booksRepository.save(book);
+    	booksRepository.save(book); //aca se guarda mal o en el otro se lee mal de la 'base' (country = null)
     }
 
     @Override
@@ -48,7 +48,8 @@ public class BooksServiceImpl implements IBooksService {
     
     @Override
 	public Book findBook(String bookId) {
-		return booksRepository.findById(bookId);
+    	Book b = booksRepository.findById(bookId); 
+		return b;
 	}
 
     public BookRepository getBookRepository() {
