@@ -21,7 +21,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ar.com.hexacta.tpl.model.Book;
+import ar.com.hexacta.tpl.model.Comment;
 import ar.com.hexacta.tpl.service.IBooksService;
+import ar.com.hexacta.tpl.service.ICommentService;
 import ar.com.hexacta.tpl.service.impl.BooksServiceImpl;
 
 /**
@@ -31,98 +33,109 @@ import ar.com.hexacta.tpl.service.impl.BooksServiceImpl;
 @Service
 public class BookWS {
 
-	public BookWS() {
+    public BookWS() {
 
-	}
+    }
 
-	@Autowired
-	private IBooksService bookService;
+    @Autowired
+    private IBooksService bookService;
 
-	@GET
-	@Path("/")
-	@Produces("application/json")
-	public List<Book> findAllBooks() {
-		return bookService.findAllBooks();
-	}
+    @Autowired
+    private ICommentService commentService;
 
-	@GET
-	@Path("/{bookId}")
-	@Produces("application/json")
-	public Book findBook(@PathParam("bookId") final String bookId) {
-		return bookService.findBook(new Long(bookId));
-	}
+    /*
+     * Prueba de comment en la base de datos, falta crear un servicio para el
+     * mismo
+     */
+    @GET
+    @Path("/comments")
+    @Produces("application/json")
+    public List<Comment> findAllComments() {
+        return commentService.findAllComments();
+    }
 
-	@POST
-	@Path("/")
-	@Consumes("application/json")
-	public Response createBook(
-			@Multipart(value = "book2", type = "application/json") final String jsonBook) {
-		try {
+    @GET
+    @Path("/")
+    @Produces("application/json")
+    public List<Book> findAllBooks() {
+        return bookService.findAllBooks();
+    }
 
-			bookService.createBook(parseBook(jsonBook));
+    @GET
+    @Path("/{bookId}")
+    @Produces("application/json")
+    public Book findBook(@PathParam("bookId") final String bookId) {
+        return bookService.findBook(new Long(bookId));
+    }
 
-		} catch (JsonParseException e) {
-			e.printStackTrace();
-			return Response.serverError().build();
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
-			return Response.serverError().build();
-		} catch (IOException e) {
-			e.printStackTrace();
-			return Response.serverError().build();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return Response.serverError().build();
-		}
-		return Response.ok().build();
+    @POST
+    @Path("/")
+    @Consumes("application/json")
+    public Response createBook(@Multipart(value = "book2", type = "application/json") final String jsonBook) {
+        try {
 
-	}
+            bookService.createBook(parseBook(jsonBook));
 
-	@PUT
-	@Path("/{bookId}")
-	@Consumes("application/json")
-	public Response updateBook(@PathParam("bookId") final String bookId,
-			final String jsonBook) {
-		try {
-			Book book = parseBook(jsonBook);
-			book.setId(new Long(bookId));
-			bookService.updateBook(book);
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+            return Response.serverError().build();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+            return Response.serverError().build();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return Response.serverError().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.serverError().build();
+        }
+        return Response.ok().build();
 
-		} catch (JsonParseException e) {
-			e.printStackTrace();
-			return Response.serverError().build();
-		} catch (JsonMappingException e) {
-			e.printStackTrace();
-			return Response.serverError().build();
-		} catch (IOException e) {
-			e.printStackTrace();
-			return Response.serverError().build();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return Response.serverError().build();
-		}
-		return Response.ok().build();
-	}
+    }
 
-	@DELETE
-	@Path("/{bookId}")
-	public void deleteBook(@PathParam("bookId") final String bookId) {
-		bookService.deleteBookById(new Long(bookId));
-	}
+    @PUT
+    @Path("/{bookId}")
+    @Consumes("application/json")
+    public Response updateBook(@PathParam("bookId") final String bookId, final String jsonBook) {
+        try {
+            Book book = parseBook(jsonBook);
+            book.setId(new Long(bookId));
+            bookService.updateBook(book);
 
-	private Book parseBook(final String jsonBook) throws JsonParseException,
-			JsonMappingException, IOException {
-		Book newBook = new Book();
-		ObjectMapper mapper = new ObjectMapper();
-		newBook = mapper.readValue(jsonBook, Book.class);
-		return newBook;
-	}
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+            return Response.serverError().build();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+            return Response.serverError().build();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return Response.serverError().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.serverError().build();
+        }
+        return Response.ok().build();
+    }
 
-	public IBooksService getBookService() {
-		return bookService;
-	}
+    @DELETE
+    @Path("/{bookId}")
+    public void deleteBook(@PathParam("bookId") final String bookId) {
+        bookService.deleteBookById(new Long(bookId));
+    }
 
-	public void setBookService(final BooksServiceImpl bookService) {
-		this.bookService = bookService;
-	}
+    private Book parseBook(final String jsonBook) throws JsonParseException, JsonMappingException, IOException {
+        Book newBook = new Book();
+        ObjectMapper mapper = new ObjectMapper();
+        newBook = mapper.readValue(jsonBook, Book.class);
+        return newBook;
+    }
+
+    public IBooksService getBookService() {
+        return bookService;
+    }
+
+    public void setBookService(final BooksServiceImpl bookService) {
+        this.bookService = bookService;
+    }
 }
