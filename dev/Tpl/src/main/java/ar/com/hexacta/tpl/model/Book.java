@@ -1,102 +1,143 @@
 package ar.com.hexacta.tpl.model;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
-public class Book extends Entity {
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Version;
 
-	private static final long serialVersionUID = 604529088687479075L;
+@Entity
+public class Book implements Serializable {
 
-	private String name;
+    private static final long serialVersionUID = 604529088687479075L;
 
-	private String description;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	private String publisher;
+    @Version
+    private Long version;
 
-	private String country;
+    @Column(name = "NAME")
+    private String name;
 
-	private Set<BookCategory> bookCategories;
+    @Column(name = "DESCRIPTION")
+    private String description;
 
-	private Set<BookCopy> bookCopies;
+    @Column(name = "PUBLISHER")
+    private String publisher;
 
-	private List<Comment> bookComments;
+    @Column(name = "COUNTRY")
+    private String country;
 
-	// Hibernate needs
-	public Book() {
-		super();
-	}
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Column(name = "BOOK_CATEGORY")
+    private Set<BookCategory> bookCategories;
 
-	public Book(final String name) {
-		super();
-		this.name = name;
-	}
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Column(name = "BOOK_COPY")
+    private Set<BookCopy> bookCopies;
 
-	public Book(final String aName, final String aDescription,
-			final String aPublisher, final Set<BookCategory> bookCategories,
-			final Set<BookCopy> bookCopies, final List<Comment> bookComments) {
-		super();
-		name = aName;
-		description = aDescription;
-		publisher = aPublisher;
-		this.bookCategories = bookCategories;
-		this.bookCopies = bookCopies;
-		this.bookComments = bookComments;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Column(name = "BOOK_COMMENT")
+    private List<Comment> bookComments;
 
-	}
+    // Hibernate needs
+    public Book() {
+        super();
+    }
 
-	public Set<BookCategory> getBookCategories() {
-		return bookCategories;
-	}
+    public Book(final String name) {
+        super();
+        this.name = name;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public Book(final String aName, final String aDescription, final String aPublisher,
+            final Set<BookCategory> bookCategories, final Set<BookCopy> bookCopies, final List<Comment> bookComments) {
+        super();
+        name = aName;
+        description = aDescription;
+        publisher = aPublisher;
+        this.bookCategories = bookCategories;
+        this.bookCopies = bookCopies;
+        this.bookComments = bookComments;
 
-	public BookCopy getFreeBookCopy() {
-		for (BookCopy bookCopy : bookCopies) {
-			if (bookCopy.getState().equals(BookCopy.STATE_FREE))
-				return bookCopy;
-		}
-		return null;
-	}
+    }
 
-	public String getName() {
-		return name;
-	}
+    public Set<BookCategory> getBookCategories() {
+        return bookCategories;
+    }
 
-	public String getPublisher() {
-		return publisher;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setBookCategories(final Set<BookCategory> bookCategories) {
-		this.bookCategories = bookCategories;
-	}
+    public BookCopy getFreeBookCopy() {
+        for (BookCopy bookCopy : bookCopies) {
+            if (bookCopy.getState().equals(BookCopy.STATE_FREE))
+                return bookCopy;
+        }
+        return null;
+    }
 
-	public void setDescription(final String description) {
-		this.description = description;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(final String name) {
-		this.name = name;
-	}
+    public String getPublisher() {
+        return publisher;
+    }
 
-	public void setPublisher(final String publisher) {
-		this.publisher = publisher;
-	}
+    public void setBookCategories(final Set<BookCategory> bookCategories) {
+        this.bookCategories = bookCategories;
+    }
 
-	public String getCountry() {
-		return country;
-	}
+    public void setDescription(final String description) {
+        this.description = description;
+    }
 
-	public void setCountry(final String country) {
-		this.country = country;
-	}
+    public void setName(final String name) {
+        this.name = name;
+    }
 
-	public List<Comment> getBookComments() {
-		return bookComments;
-	}
+    public void setPublisher(final String publisher) {
+        this.publisher = publisher;
+    }
 
-	public void setBookComments(final List<Comment> bookComments) {
-		this.bookComments = bookComments;
-	}
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(final String country) {
+        this.country = country;
+    }
+
+    public List<Comment> getBookComments() {
+        return bookComments;
+    }
+
+    public void setBookComments(final List<Comment> bookComments) {
+        this.bookComments = bookComments;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(final Long id) {
+        this.id = id;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
 }

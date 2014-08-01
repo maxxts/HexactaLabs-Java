@@ -1,11 +1,30 @@
 package ar.com.hexacta.tpl.model;
 
-public class BookCategory extends Entity {
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Version;
+
+@Entity
+public class BookCategory implements Serializable {
 
     private static final long serialVersionUID = -8084614446913836469L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Version
+    private Long version;
+
+    @Column(name = "NAME")
     private String name;
 
+    @Column(name = "DESCRIPTION")
     private String description;
 
     public BookCategory() {
@@ -35,4 +54,19 @@ public class BookCategory extends Entity {
         this.description = description;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(final Long id) {
+        this.id = id;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(final Long version) {
+        this.version = version;
+    }
 }
