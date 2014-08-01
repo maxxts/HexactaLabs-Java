@@ -6,20 +6,20 @@ import ar.com.hexacta.tpl.model.Comment;
 
 public interface CommentRepository {
 
-    void save(final Comment comment);
+	void save(final Comment comment);
 
-    // void update(final Comment book);
+	// void update(final Comment book);
 
-    void delete(final Comment comment);
+	void delete(final Comment comment);
 
-    void deleteById(String commentId);
+	void deleteById(String commentId);
 
-    List<Comment> findAll();
+	List<Comment> findAll();
 
-    Comment findById(String commentId);
+	Comment findById(String commentId);
 
-    List<Comment> findByBookId(Long bookId);
+	List<Comment> findByBookId(Long bookId);
 
-    // List<Comment> findByBook(Book book);
+	// List<Comment> findByBook(Book book);
 
 }
