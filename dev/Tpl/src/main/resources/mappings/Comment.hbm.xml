@@ -11,11 +11,11 @@
 			<generator class="identity" />
 		</id>
 		
-		<property name="book" type="java.lang.String" />
+		<property name="book" column="BOOK" />
 		
-		<property name="user" type="java.lang.String"/>
+		<property name="user" column="USER" />
 		
-		<property name="body" type="java.lang.String"/>
+		<property name="body" column="BODY" />
 		
 	</class>
 	

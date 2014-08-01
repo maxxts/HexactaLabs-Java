@@ -21,11 +21,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ar.com.hexacta.tpl.model.Book;
-import ar.com.hexacta.tpl.model.Comment;
 import ar.com.hexacta.tpl.service.IBooksService;
-import ar.com.hexacta.tpl.service.ICommentService;
 import ar.com.hexacta.tpl.service.impl.BooksServiceImpl;
-import ar.com.hexacta.tpl.service.impl.CommentServiceImpl;
 
 /**
  * @author lnapoli
@@ -40,20 +37,6 @@ public class BookWS {
 
     @Autowired
     private IBooksService bookService;
-
-    @Autowired
-    private ICommentService commentService;
-
-    /*
-     * Prueba de comment en la base de datos, falta crear un servicio para el
-     * mismo
-     */
-    @GET
-    @Path("/comments")
-    @Produces("application/json")
-    public List<Comment> findAllComments() {
-        return commentService.findAllComments();
-    }
 
     @GET
     @Path("/")
@@ -140,11 +123,4 @@ public class BookWS {
         this.bookService = bookService;
     }
 
-    public ICommentService getCommentService() {
-        return commentService;
-    }
-
-    public void setCommentService(final CommentServiceImpl commentService) {
-        this.commentService = commentService;
-    }
 }
