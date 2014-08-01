@@ -18,7 +18,7 @@ public interface CommentRepository {
 
 	Comment findById(String commentId);
 
-	List<Comment> findByBookId(String bookId);
+	List<Comment> findByBookId(Long bookId);
 
 	// List<Comment> findByBook(Book book);
 
