@@ -3,8 +3,8 @@ package ar.com.hexacta.tpl.test;
 import org.junit.Assert;
 import org.junit.Test;
 
-import ar.com.hexacta.tpl.model.Book;
 import ar.com.hexacta.tpl.model.Comment;
+import ar.com.hexacta.tpl.persistence.dao.CommentDAO;
 
 public class CommentTest {
 
@@ -20,13 +20,28 @@ public class CommentTest {
 
         String testUser = "test@mail.com";
         String testBody = "Test comment body";
-
-        Book testBook = new Book("Test Book");
+        String testBook = "Test Book";
 
         Comment comment = new Comment(testBook, testUser, testBody);
 
         Assert.assertTrue(comment.getUser() == testUser);
         Assert.assertTrue(comment.getBody() == testBody);
-        Assert.assertTrue(comment.getBook().getName() == testBook.getName());
+        Assert.assertTrue(comment.getBook() == testBook);
+    }
+
+    @Test
+    public void testCommentDAO() {
+        Comment comment = new Comment("Libro", "Usuario", "Cuerpo");
+
+        Comment comment2 = new Comment();
+
+        CommentDAO commentDao = new CommentDAO();
+
+        commentDao.save(comment);
+
+        comment2 = commentDao.findById(1);
+
+        Assert.assertTrue(comment.getUser() == comment2.getUser());
+
     }
 }
