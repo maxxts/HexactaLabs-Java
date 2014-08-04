@@ -8,15 +8,15 @@ public interface CommentRepository {
 
 	void save(final Comment comment);
 
-	// void update(final Comment book);
+	void update(final Comment comment);
 
 	void delete(final Comment comment);
 
-	void deleteById(String commentId);
+	void deleteById(Long commentId);
 
 	List<Comment> findAll();
 
-	Comment findById(String commentId);
+	Comment findById(Long commentId);
 
 	List<Comment> findByBookId(Long bookId);
 

@@ -13,21 +13,27 @@ import ar.com.hexacta.tpl.persistence.repository.CommentRepository;
 public class CommentDAO extends AbstractDAO<Comment> implements
 		CommentRepository {
 
+	// TODO Remove prints!!
+
 	@Override
-	public Comment findById(final String commentId) {
+	public Comment findById(final Long commentId) {
 		Criteria criteria = this.getSession().createCriteria(Comment.class);
 		criteria.add(Restrictions.like("id", commentId));
 		return (Comment) criteria.uniqueResult();
 	}
 
 	@Override
-	public void deleteById(final String commentId) {
-		throw new UnsupportedOperationException();
+	public void deleteById(final Long commentId) {
+		System.out.println("CommentDAO.deleteById( " + commentId + " )...");
+		super.deleteById(commentId);
 	}
 
 	@Override
 	public List<Comment> findByBookId(final Long bookId) {
+		System.out.println("CommentDAO.findByBookId( " + bookId
+				+ " )... \n Unsupported Operation:");
 		throw new UnsupportedOperationException();
+
 	}
 
 }
