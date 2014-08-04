@@ -41,16 +41,20 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 	
 });
 
-booksApp.controller('commentController', function(){
-	this.comment = {};
-	this.addComment = function(book){
-		alert("HOLA");
+booksApp.controller('commentController', function($scope){
+	$scope.comment = {};
+	$scope.addComment = function(book){
+		console.log("Se crea");
 		//TODO: cambiar esto cuando ya esten implementados los comentarios en el backend
 	
 		if (!book.comments)
 			book.comments = [];
 		
 		book.comments.push(this.comment);
-		this.comment = {};
+		$scope.comment = {};
 	};
+	
+	$scope.limpiarComentarios = function(){
+		$scope.comment =  {};
+	}
 });
