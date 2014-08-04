@@ -26,12 +26,13 @@ public class CommentDAO extends AbstractDAO<Comment> implements
 	public void deleteById(final Long commentId) {
 		System.out.println("CommentDAO.deleteById( " + commentId + " )...");
 		super.deleteById(commentId);
+		System.out.println("<< OK >>");
 	}
 
 	@Override
 	public List<Comment> findByBookId(final Long bookId) {
-		System.out.println("CommentDAO.findByBookId( " + bookId
-				+ " )... \n Unsupported Operation:");
+		System.out.println("CommentDAO.findByBookId( " + bookId + " )...");
+		System.out.println("<< Unsupported Operation >>");
 		throw new UnsupportedOperationException();
 
 	}
