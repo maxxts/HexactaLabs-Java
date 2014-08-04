@@ -70,38 +70,51 @@ public class DataInitDAO implements DataInitRepository {
         LOG.info("Created book " + book3.getId());
 
         // Comentarios
-        Comment comment1 = new Comment("El principito", "yo@mail.com", "El mejor libro sobre dinosaurios!");
+        Comment comment1 = new Comment(book1, "yo@mail.com", "El mejor libro sobre dinosaurios!");
         commentDAO.save(comment1);
         LOG.info("Created comment " + comment1.getId());
-        Comment comment2 = new Comment("Godzila", "sdlkfj@gmail.com", "No me gusto que no mencionen Hello Kitty");
+        Comment comment2 = new Comment(book1, "sdlkfj@gmail.com", "No me gusto que no mencionen Hello Kitty");
         commentDAO.save(comment2);
         LOG.info("Created comment " + comment2.getId());
-        Comment comment3 = new Comment("Jesus Reloaded", "religioso@islam.com", "Por Al-lah!");
+        Comment comment3 = new Comment(book2, "religioso@islam.com", "Por Al-lah!");
         commentDAO.save(comment3);
         LOG.info("Created comment " + comment3.getId());
-        Comment comment4 = new Comment("Book Not Found", "User Not Found",
-                "Me hubiese gustado que el libro tuviese algo escrito");
+        Comment comment4 = new Comment(book3, "Prueba", "Me hubiese gustado que el libro tuviese algo escrito");
         commentDAO.save(comment4);
         LOG.info("Created comment " + comment4.getId());
 
+        book1.addBookComment(comment1);
+        book1.addBookComment(comment2);
+        book2.addBookComment(comment3);
+        book3.addBookComment(comment4);
+
+        bookDAO.update(book1);
+        bookDAO.update(book2);
+        bookDAO.update(book3);
+
         // TESTING Comentarios
-        LOG.info("\n <<<<<<<<<<<<< Retrieving Comments... >>>>>>>>>>>>>>>>>");
-
-        Comment commentTest = commentDAO.findById(comment1.getId());
-        LOG.info("Comment " + commentTest.getId() + "\n" + ">>Book: " + commentTest.getBook() + "\n" + ">>User: "
-                + commentTest.getUser() + "\n" + ">>Body: " + commentTest.getBody());
-        commentTest = commentDAO.findById(comment2.getId());
-        LOG.info("Comment " + commentTest.getId() + "\n" + ">>Book: " + commentTest.getBook() + "\n" + ">>User: "
-                + commentTest.getUser() + "\n" + ">>Body: " + commentTest.getBody());
-        commentTest = commentDAO.findById(comment3.getId());
-        LOG.info("Comment " + commentTest.getId() + "\n" + ">>Book: " + commentTest.getBook() + "\n" + ">>User: "
-                + commentTest.getUser() + "\n" + ">>Body: " + commentTest.getBody());
-        commentTest = commentDAO.findById(comment4.getId());
-        LOG.info("Comment " + commentTest.getId() + "\n" + ">>Book: " + commentTest.getBook() + "\n" + ">>User: "
-                + commentTest.getUser() + "\n" + ">>Body: " + commentTest.getBody());
-
-        LOG.info("\n <<<<<<<<<<<<< END OF COMMENTS >>>>>>>>>>>>>>>>>");
-
+        /*
+         * LOG.info("\n <<<<<<<<<<<<< Retrieving Comments... >>>>>>>>>>>>>>>>>");
+         *
+         * Comment commentTest = commentDAO.findById(comment1.getId());
+         * LOG.info("Comment " + commentTest.getId() + "\n" + ">>Book: " +
+         * commentTest.getBook() + "\n" + ">>User: " + commentTest.getUser() +
+         * "\n" + ">>Body: " + commentTest.getBody()); commentTest =
+         * commentDAO.findById(comment2.getId()); LOG.info("Comment " +
+         * commentTest.getId() + "\n" + ">>Book: " + commentTest.getBook() +
+         * "\n" + ">>User: " + commentTest.getUser() + "\n" + ">>Body: " +
+         * commentTest.getBody()); commentTest =
+         * commentDAO.findById(comment3.getId()); LOG.info("Comment " +
+         * commentTest.getId() + "\n" + ">>Book: " + commentTest.getBook() +
+         * "\n" + ">>User: " + commentTest.getUser() + "\n" + ">>Body: " +
+         * commentTest.getBody()); commentTest =
+         * commentDAO.findById(comment4.getId()); LOG.info("Comment " +
+         * commentTest.getId() + "\n" + ">>Book: " + commentTest.getBook() +
+         * "\n" + ">>User: " + commentTest.getUser() + "\n" + ">>Body: " +
+         * commentTest.getBody());
+         *
+         * LOG.info("\n <<<<<<<<<<<<< END OF COMMENTS >>>>>>>>>>>>>>>>>");
+         */
         // Prestamos
         Loan loan = new Loan("user1", bookCopy1, new Date(), new Date());
         genericDAO.saveOrUpdate(loan);
