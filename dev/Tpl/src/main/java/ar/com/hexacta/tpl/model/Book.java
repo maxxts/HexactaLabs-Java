@@ -1,5 +1,6 @@
 package ar.com.hexacta.tpl.model;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
@@ -52,6 +53,29 @@ public class Book implements Serializable {
     private List<Comment> bookComments;
 
     // Hibernate needs
+=======
+import java.util.Set;
+
+public class Book extends Entity {
+
+    private static final long serialVersionUID = 604529088687479075L;
+
+    private String name;
+
+    private String description;
+
+    private String publisher;
+
+    private String country;
+
+    private Set<BookCategory> bookCategories;
+
+    private Set<BookCopy> bookCopies;
+
+    private Set<Comment> bookComments;
+
+    // Hibernate needs this
+>>>>>>> 7f77aeac5692d449136e4c018972f188833f0bc8
     public Book() {
         super();
     }
@@ -62,7 +86,11 @@ public class Book implements Serializable {
     }
 
     public Book(final String aName, final String aDescription, final String aPublisher,
+<<<<<<< HEAD
             final Set<BookCategory> bookCategories, final Set<BookCopy> bookCopies, final List<Comment> bookComments) {
+=======
+            final Set<BookCategory> bookCategories, final Set<BookCopy> bookCopies, final Set<Comment> bookComments) {
+>>>>>>> 7f77aeac5692d449136e4c018972f188833f0bc8
         super();
         name = aName;
         description = aDescription;
@@ -121,6 +149,7 @@ public class Book implements Serializable {
         this.country = country;
     }
 
+<<<<<<< HEAD
     public List<Comment> getBookComments() {
         return bookComments;
     }
@@ -140,4 +169,19 @@ public class Book implements Serializable {
     public Long getVersion() {
         return version;
     }
+=======
+    public Set<Comment> getBookComments() {
+        return bookComments;
+    }
+
+    public void setBookComments(final Set<Comment> bookComments) {
+        this.bookComments = bookComments;
+    }
+
+    public void addBookComment(final Comment aComment) {
+        aComment.setBook(this);
+        bookComments.add(aComment);
+    }
+
+>>>>>>> 7f77aeac5692d449136e4c018972f188833f0bc8
 }

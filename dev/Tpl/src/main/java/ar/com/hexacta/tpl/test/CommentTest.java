@@ -3,6 +3,7 @@ package ar.com.hexacta.tpl.test;
 import org.junit.Assert;
 import org.junit.Test;
 
+import ar.com.hexacta.tpl.model.Book;
 import ar.com.hexacta.tpl.model.Comment;
 
 public class CommentTest {
@@ -17,9 +18,11 @@ public class CommentTest {
     @Test
     public void testParamCommentCreation() {
 
+        Book book = new Book("Test Book");
+
         String testUser = "test@mail.com";
         String testBody = "Test comment body";
-        String testBook = "Test Book";
+        Book testBook = book;
 
         Comment comment = new Comment(testBook, testUser, testBody);
 

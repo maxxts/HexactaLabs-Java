@@ -17,6 +17,7 @@ public class Comment implements Serializable {
 
     private static final long serialVersionUID = 537917183637872456L;
 
+<<<<<<< HEAD
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,20 +26,27 @@ public class Comment implements Serializable {
     private Long version;
 
     @Column(name = "USER")
+=======
+    private Book book;
+
+>>>>>>> 7f77aeac5692d449136e4c018972f188833f0bc8
     private String user;
 
     @Column(name = "BODY")
     private String body;
 
+<<<<<<< HEAD
     @Column(name = "BOOK")
     private String book;
 
+=======
+>>>>>>> 7f77aeac5692d449136e4c018972f188833f0bc8
     // Hibernate needs
     public Comment() {
         super();
     }
 
-    public Comment(final String book, final String user, final String body) {
+    public Comment(final Book book, final String user, final String body) {
         super();
         this.book = book;
         this.user = user;
@@ -61,11 +69,11 @@ public class Comment implements Serializable {
         this.body = body;
     }
 
-    public String getBook() {
+    public Book getBook() {
         return book;
     }
 
-    public void setBook(final String book) {
+    public void setBook(final Book book) {
         this.book = book;
     }
 
