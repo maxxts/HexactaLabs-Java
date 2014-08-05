@@ -7,24 +7,31 @@
 <!-- Style sheets -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
-<link href="css/datatables/demo_page.css" rel="stylesheet" type="text/css" />
-<link href="css/datatables/demo_table.css" rel="stylesheet" type="text/css" />
-<link href="css/datatables/demo_table_jui.css" rel="stylesheet" type="text/css" />
-<link type="text/css" href="css/datatables/jquery.dataTables.css"	rel="stylesheet" />	
-<link type="text/css" href="css/jquery-ui.css"	rel="stylesheet" />
-<link type="text/css"	href="css/ui-lightness/jquery-ui-1.8.16.custom.css"	rel="stylesheet" />
+<link href="css/datatables/demo_page.css" rel="stylesheet"
+	type="text/css" />
+<link href="css/datatables/demo_table.css" rel="stylesheet"
+	type="text/css" />
+<link href="css/datatables/demo_table_jui.css" rel="stylesheet"
+	type="text/css" />
+<link type="text/css" href="css/datatables/jquery.dataTables.css"
+	rel="stylesheet" />
+<link type="text/css" href="css/jquery-ui.css" rel="stylesheet" />
+<link type="text/css"
+	href="css/ui-lightness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
 <link href="css/site.css" rel="stylesheet" type="text/css" />
 <!-- End Style sheets -->
 
 <!-- Javascript -->
-<script type="text/javascript"	src="js/jquery-1.6.2.min.js"></script>
-<script type="text/javascript"	src="js/jquery-ui-1.8.16.custom.min.js"></script>	
-<script type="text/javascript"	src="js/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
 <script src="js/angular.min.js"></script>
 <script src="js/angular-route.min.js"></script>
 <script src="js/angular-animate.min.js"></script>
 <script src="js/angular-touch.min.js"></script>
 <script src="js/bootstrap.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript"  charset="utf-8" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="app/app.js"></script>
 <script type="text/javascript" src="app/controller/bookListCtrl.js"></script>
 <script type="text/javascript" src="app/controller/createBookCtrl.js"></script>
@@ -49,6 +56,7 @@
 <!-- End Javascript -->
 
 </head>
+<<<<<<< HEAD
 <body class="container">
 	<div class="col-md-8"> 
 		<h2>Hexacta E-Bookstore 
@@ -60,5 +68,63 @@
 		<p>TEST</p>
 	</div>
 	<div ng-view></div>
+=======
+<body class="">
+	<div class="col-md-12">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Hexacta E-Bookstore <!-- <small>The
+							most amazing bookstore in the world</small> --></a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Libros</a></li>
+						<li><a href="#">Otra Seccion</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Registrarse</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span
+								class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#"><span class="glyphicon glyphicon-minus"></span>
+										Accion 1</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-minus"></span>
+										Accion 2</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-cog"></span>
+										Opciones</a></li>
+								<li class="divider"></li>
+								<li><a href="#"><span class="glyphicon glyphicon-off"></span>
+										Salir</a></li>
+							</ul></li>
+					</ul>
+					<form class="navbar-form navbar-right" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control input-sm"
+								placeholder="User"> <input type="password"
+								class="form-control input-sm" placeholder="Password">
+						</div>
+						<button type="submit" class="btn btn-default input-sm">Entrar</button>
+					</form>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+		<!-- <small>The most amazing bookstore in the world</small>
+		-->
+		<hr />
+	</div>
+	<div class="container" ng-view></div>
+>>>>>>> d872743a10b55c5022d3a86a107b2476b603bdac
 </body>
 </html>
