@@ -22,11 +22,32 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
             <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
         </jaxrs:providers>
 	</jaxrs:server>
+	
+	<bean id="booksWS" class="ar.com.hexacta.tpl.resource.BookWS">
+	
+
+	</bean>
+	
+	<jaxrs:server id="CommentCXFService" address="/comments">
+		<jaxrs:serviceBeans>
+			<ref bean="commentWS" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+            <bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+        </jaxrs:providers>
+	</jaxrs:server>
   
   
    
-	<bean id="booksWS" class="ar.com.hexacta.tpl.resource.BookWS">
+	
+	
+
+	<bean id="commentWS" class="ar.com.hexacta.tpl.resource.CommentWS">
+	
 
 	</bean>
+	
+	
+	
 	
 </beans>
