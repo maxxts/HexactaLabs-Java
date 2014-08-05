@@ -10,23 +10,31 @@ import ar.com.hexacta.tpl.model.Comment;
 import ar.com.hexacta.tpl.persistence.repository.CommentRepository;
 
 @Repository
-public class CommentDAO extends AbstractDAO<Comment> implements CommentRepository {
+public class CommentDAO extends AbstractDAO<Comment> implements
+		CommentRepository {
 
-    @Override
-    public Comment findById(final Long commentId) {
-        Criteria criteria = this.getSession().createCriteria(Comment.class);
-        criteria.add(Restrictions.like("id", commentId));
-        return (Comment) criteria.uniqueResult();
-    }
+	// TODO Remove prints!!
 
-    @Override
-    public void deleteById(final Long commentId) {
-        throw new UnsupportedOperationException();
-    }
+	@Override
+	public Comment findById(final Long commentId) {
+		Criteria criteria = this.getSession().createCriteria(Comment.class);
+		criteria.add(Restrictions.like("id", commentId));
+		return (Comment) criteria.uniqueResult();
+	}
 
-    @Override
-    public List<Comment> findByBookId(final Long bookId) {
-        throw new UnsupportedOperationException();
-    }
+	@Override
+	public void deleteById(final Long commentId) {
+		System.out.println("CommentDAO.deleteById( " + commentId + " )...");
+		super.deleteById(commentId);
+		System.out.println("<< OK >>");
+	}
+
+	@Override
+	public List<Comment> findByBookId(final Long bookId) {
+		System.out.println("CommentDAO.findByBookId( " + bookId + " )...");
+		System.out.println("<< Unsupported Operation >>");
+		throw new UnsupportedOperationException();
+
+	}
 
 }

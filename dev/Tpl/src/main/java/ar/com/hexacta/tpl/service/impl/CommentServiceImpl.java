@@ -13,13 +13,42 @@ import ar.com.hexacta.tpl.service.ICommentService;
 @Service
 public class CommentServiceImpl implements ICommentService {
 
-    @Autowired
-    CommentRepository commentRepository;
+	@Autowired
+	CommentRepository commentRepository;
 
-    @Override
-    @Transactional
-    public List<Comment> findAllComments() {
-        return commentRepository.findAll();
-    }
+	@Override
+	public List<Comment> findAllComments() {
+		return commentRepository.findAll();
+	}
 
+	@Override
+	public Comment findComment(final Long commentId) {
+		return commentRepository.findById(commentId);
+	}
+
+	@Override
+	@Transactional
+	public void createComment(final Comment comment) {
+		commentRepository.save(comment);
+
+	}
+
+	@Override
+	@Transactional
+	public void updateComment(final Comment comment) {
+		commentRepository.update(comment);
+
+	}
+
+	@Override
+	@Transactional
+	public void deleteCommentById(final Long commentId) {
+		commentRepository.deleteById(commentId);
+
+	}
+
+	@Override
+	public List<Comment> findCommentsByBookId(final Long bookId) {
+		return commentRepository.findByBookId(bookId);
+	}
 }
