@@ -58,7 +58,7 @@ public class CommentWS {
 	@POST
 	@Path("/")
 	@Consumes("application/json")
-	public Response createBook(
+	public Response createComment(
 			@Multipart(value = "newComment", type = "application/json") final String jsonComment) {
 		try {
 
