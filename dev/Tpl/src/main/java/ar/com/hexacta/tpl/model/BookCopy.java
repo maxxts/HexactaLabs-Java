@@ -5,22 +5,16 @@ package ar.com.hexacta.tpl.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Version;
+// @Entity
+public class BookCopy extends Entidad implements Serializable {
 
-@Entity
-public class BookCopy implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Version
-    private Long version;
-
+    /*
+     * @Id
+     * 
+     * @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
+     * 
+     * @Version private Long version;
+     */
     public static final String BOOK_RATE_BAD = "Bad";
 
     public static final String BOOK_RATE_NORMAL = "Normal";
@@ -35,13 +29,13 @@ public class BookCopy implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "CODE")
+    // @Column(name = "CODE")
     private String code = "";
 
-    @Column(name = "BOOK_RATE")
+    // @Column(name = "BOOK_RATE")
     private String bookRate;
 
-    @Column(name = "STATE")
+    // @Column(name = "STATE")
     private String state;
 
     public BookCopy() {
@@ -74,20 +68,13 @@ public class BookCopy implements Serializable {
     public String getState() {
         return state;
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(final Long id) {
-        this.id = id;
-    }
-
-    public Long getVersion() {
-        return version;
-    }
-
-    public void setVersion(final Long version) {
-        this.version = version;
-    }
+    /*
+     * public Long getId() { return id; }
+     * 
+     * public void setId(final Long id) { this.id = id; }
+     * 
+     * public Long getVersion() { return version; }
+     * 
+     * public void setVersion(final Long version) { this.version = version; }
+     */
 }

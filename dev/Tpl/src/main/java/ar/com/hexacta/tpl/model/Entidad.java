@@ -11,12 +11,6 @@ import javax.persistence.Version;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-/**
- *
- * C L A S E O B S O L E T A *
- *
- */
-
 @Entity
 public class Entidad implements Serializable {
 

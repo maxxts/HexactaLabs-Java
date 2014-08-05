@@ -22,6 +22,10 @@ booksApp.config(['$routeProvider', '$locationProvider', function ($routeProvider
             templateUrl: 'app/views/deleteBookPage.html',
             controller: 'deleteBookCtrl'
         }).
+        when('/logIn/', {
+            templateUrl: 'app/views/logInPage.html',
+            controller: 'logInCtrl'
+        }).
 		otherwise({
 			redirectTo: '/'
 		});

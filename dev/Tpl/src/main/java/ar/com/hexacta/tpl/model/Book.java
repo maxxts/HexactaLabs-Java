@@ -1,62 +1,8 @@
 package ar.com.hexacta.tpl.model;
 
-<<<<<<< HEAD
-import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Version;
-
-@Entity
-public class Book implements Serializable {
-
-    private static final long serialVersionUID = 604529088687479075L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Version
-    private Long version;
-
-    @Column(name = "NAME")
-    private String name;
-
-    @Column(name = "DESCRIPTION")
-    private String description;
-
-    @Column(name = "PUBLISHER")
-    private String publisher;
-
-    @Column(name = "COUNTRY")
-    private String country;
-
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @Column(name = "BOOK_CATEGORY")
-    private Set<BookCategory> bookCategories;
-
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @Column(name = "BOOK_COPY")
-    private Set<BookCopy> bookCopies;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @Column(name = "BOOK_COMMENT")
-    private List<Comment> bookComments;
-
-    // Hibernate needs
-=======
-import java.util.Set;
-
-public class Book extends Entity {
+public class Book extends Entidad {
 
     private static final long serialVersionUID = 604529088687479075L;
 
@@ -75,7 +21,7 @@ public class Book extends Entity {
     private Set<Comment> bookComments;
 
     // Hibernate needs this
->>>>>>> 7f77aeac5692d449136e4c018972f188833f0bc8
+
     public Book() {
         super();
     }
@@ -85,16 +31,15 @@ public class Book extends Entity {
         this.name = name;
     }
 
-    public Book(final String aName, final String aDescription, final String aPublisher,
-<<<<<<< HEAD
-            final Set<BookCategory> bookCategories, final Set<BookCopy> bookCopies, final List<Comment> bookComments) {
-=======
-            final Set<BookCategory> bookCategories, final Set<BookCopy> bookCopies, final Set<Comment> bookComments) {
->>>>>>> 7f77aeac5692d449136e4c018972f188833f0bc8
+    public Book(final String aName, final String aDescription, final String aPublisher, final String aCountry,
+
+    final Set<BookCategory> bookCategories, final Set<BookCopy> bookCopies, final Set<Comment> bookComments) {
+
         super();
         name = aName;
         description = aDescription;
         publisher = aPublisher;
+        country = aCountry;
         this.bookCategories = bookCategories;
         this.bookCopies = bookCopies;
         this.bookComments = bookComments;
@@ -149,27 +94,6 @@ public class Book extends Entity {
         this.country = country;
     }
 
-<<<<<<< HEAD
-    public List<Comment> getBookComments() {
-        return bookComments;
-    }
-
-    public void setBookComments(final List<Comment> bookComments) {
-        this.bookComments = bookComments;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(final Long id) {
-        this.id = id;
-    }
-
-    public Long getVersion() {
-        return version;
-    }
-=======
     public Set<Comment> getBookComments() {
         return bookComments;
     }
@@ -183,5 +107,4 @@ public class Book extends Entity {
         bookComments.add(aComment);
     }
 
->>>>>>> 7f77aeac5692d449136e4c018972f188833f0bc8
 }

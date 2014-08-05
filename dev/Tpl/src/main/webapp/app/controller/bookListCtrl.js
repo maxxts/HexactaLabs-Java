@@ -13,6 +13,10 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 		$location.path("/lendBook/"+bookId);
 	};
 	
+	$scope.linkToLogIn=function(){
+		$location.path("/logIn/");
+	};
+	
 	$http({
 		method : 'GET',
 		url: '/Tpl/rest/books',
