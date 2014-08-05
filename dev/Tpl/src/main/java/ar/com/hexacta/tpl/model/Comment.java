@@ -7,18 +7,18 @@ public class Comment extends Entity {
 
     private static final long serialVersionUID = 537917183637872456L;
 
+    private Book book;
+
     private String user;
 
     private String body;
-
-    private String book;
 
     // Hibernate needs
     public Comment() {
         super();
     }
 
-    public Comment(final String book, final String user, final String body) {
+    public Comment(final Book book, final String user, final String body) {
         super();
         this.book = book;
         this.user = user;
@@ -41,11 +41,11 @@ public class Comment extends Entity {
         this.body = body;
     }
 
-    public String getBook() {
+    public Book getBook() {
         return book;
     }
 
-    public void setBook(final String book) {
+    public void setBook(final Book book) {
         this.book = book;
     }
 
