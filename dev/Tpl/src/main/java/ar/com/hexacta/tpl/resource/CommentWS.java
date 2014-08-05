@@ -62,7 +62,7 @@ public class CommentWS {
 			@Multipart(value = "newComment", type = "application/json") final String jsonComment) {
 		try {
 
-			commentService.createComment(parseBook(jsonComment));
+			commentService.createComment(parseComment(jsonComment));
 
 		} catch (JsonParseException e) {
 			e.printStackTrace();
@@ -84,10 +84,11 @@ public class CommentWS {
 	@PUT
 	@Path("/{commentId}")
 	@Consumes("application/json")
-	public Response updateBook(@PathParam("commentId") final String commentId,
+	public Response updateComment(
+			@PathParam("commentId") final String commentId,
 			final String jsonComment) {
 		try {
-			Comment comment = parseBook(jsonComment);
+			Comment comment = parseComment(jsonComment);
 			comment.setId(new Long(commentId));
 			commentService.updateComment(comment);
 
@@ -113,11 +114,11 @@ public class CommentWS {
 		commentService.deleteCommentById(new Long(commentId));
 	}
 
-	private Comment parseBook(final String jsonBook) throws JsonParseException,
-			JsonMappingException, IOException {
+	private Comment parseComment(final String jsonComment)
+			throws JsonParseException, JsonMappingException, IOException {
 		Comment newComment = new Comment();
 		ObjectMapper mapper = new ObjectMapper();
-		newComment = mapper.readValue(jsonBook, Comment.class);
+		newComment = mapper.readValue(jsonComment, Comment.class);
 		return newComment;
 	}
 
