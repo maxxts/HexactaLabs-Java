@@ -20,7 +20,7 @@ public class Book extends Entity {
 
     private Set<Comment> bookComments;
 
-    // Hibernate needs
+    // Hibernate needs this
     public Book() {
         super();
     }
