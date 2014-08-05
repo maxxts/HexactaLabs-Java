@@ -92,20 +92,16 @@
 										Salir</a></li>
 							</ul></li>
 					</ul>
-					<form class="navbar-form navbar-right" role="search">
+					<form class="navbar-form navbar-right" role="search" action="http://localhost:8080/Tpl/">
 						<div class="form-group">
-							<input type="text" class="form-control input-sm" placeholder="User" />
-							<input type="password" class="form-control input-sm" placeholder="Password" />
+							<input type="text" class="form-control input-sm" placeholder="User" required />
+							<input type="password" class="form-control input-sm" placeholder="Password" required />
 						</div>
-						<button type="submit" class="btn btn-default input-sm">Entrar</button>
+						<button type="submit" class="btn btn-default input-sm" ng-model="paginaPrincipal">Entrar</button>
 					</form>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-			<!-- /.container-fluid -->
-		</nav>
-		<!-- <small>The most amazing bookstore in the world</small>
-		-->
+				</div>				<!-- /.navbar-collapse -->
+			</div>			<!-- /.container-fluid -->
+		</nav>		<!-- <small>The most amazing bookstore in the world</small>-->
 		<hr />
 	</div>
 	<div class="container" ng-view></div>

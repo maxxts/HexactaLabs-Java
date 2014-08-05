@@ -13,8 +13,7 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 	$scope.linkToLendBook=function(bookId){
 		$location.path("/lendBook/"+bookId);
 	};
-	
-<<<<<<< HEAD
+
 	$scope.linkToLogIn=function(){
 		$location.path("/logIn/");
 	};
@@ -24,7 +23,7 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 		url: '/Tpl/rest/books',
 		headers : {'Content-type' : 'application/json', 'Accept' : 'application/json'}
 	}).success(function(data, status, headers, config){
-=======
+
 	$scope.modifyModal=function(book){
 		$scope.selectedBook = book;
 	};
@@ -35,7 +34,6 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 			url: '/Tpl/rest/books',
 			headers : {'Content-type' : 'application/json', 'Accept' : 'application/json'}
 		}).success(function(data, status, headers, config){
->>>>>>> c65f08da23173a45aae0bfe49f03309ece7cf7c1
 
 			if(status = 200)
 			{
@@ -77,4 +75,5 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 		$scope.comment = {};
 	};
 	
+	});	
 });

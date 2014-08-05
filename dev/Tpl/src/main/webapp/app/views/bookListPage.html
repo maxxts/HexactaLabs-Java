@@ -9,10 +9,10 @@
 </style>
 
 <section id="bookListPage">
-<div ng-controller="bookListCtrl">
-<div>
+<div ng-controller="bookListCtrl" >
+<div ng-hide="paginaPrincipal">
 
-	<div id="feedbackPanel"  />
+	<div id="feedbackPanel" />
 			<div class="row">
 				<form role="form" class="col-md-12">
 					<div class="form-group col-md-9">					
@@ -71,14 +71,12 @@
 					</tbody>
 			</table>
 		</div>
-<<<<<<< HEAD
-		
+
 		<div class="form-group col-md-3">
-						<button type="button" class="btn btn-hexacta-primary col-md-12" ng-click="linkToLogIn()">Loguearse</button>
+						<button type="button" class="btn btn-hexacta-primary col-md-12" ng-model="paginaPrincipal" ng-click="linkToLogIn()">Loguearse</button>
 					</div>
 		
 	</div>
-=======
 
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
@@ -91,7 +89,7 @@
 						
 							<div>
 								<h4>{{selectedBook.description}}</h4>
-								<h4>{{selectedBook.publisher}}</h4>
+								<h4>- {{selectedBook.publisher}}</h4>
 								<h4>{{selectedBook.country}}</h4>
 							</div>
 							
@@ -125,9 +123,6 @@
 				</div>
 			</div>
 
-			<div class="Clear"></div>
 		</div>
->>>>>>> c65f08da23173a45aae0bfe49f03309ece7cf7c1
-</div>
 
 </section>
