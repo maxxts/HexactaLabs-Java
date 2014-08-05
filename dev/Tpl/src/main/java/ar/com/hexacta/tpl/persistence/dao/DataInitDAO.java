@@ -1,7 +1,5 @@
 package ar.com.hexacta.tpl.persistence.dao;
 
-import java.util.Date;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -10,8 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 import ar.com.hexacta.tpl.model.Book;
 import ar.com.hexacta.tpl.model.BookCategory;
 import ar.com.hexacta.tpl.model.BookCopy;
-import ar.com.hexacta.tpl.model.Comment;
-import ar.com.hexacta.tpl.model.Loan;
 import ar.com.hexacta.tpl.model.builder.BookBuilder;
 import ar.com.hexacta.tpl.model.builder.BookCategoryBuilder;
 import ar.com.hexacta.tpl.model.builder.BookCopyBuilder;
@@ -56,7 +52,7 @@ public class DataInitDAO implements DataInitRepository {
                 .withDescription("Best-seller del escritor frances Antoine de Saint-Exupery.")
                 .withPublisher("Editorial Planeta").withCategory(physicalCategory).withBookCopy(bookCopy1, bookCopy2)
                 .build();
-        bookDAO.saveOrUpdate(book1);
+        bookDAO.save(book1);
         LOG.info("Created book " + book1.getId());
         Book book2 = new BookBuilder().withName("El codigo Da Vinci")
                 .withDescription("Novela de misterio del escritor Dan Brown.").withPublisher("Editorial Estrada")
@@ -69,57 +65,11 @@ public class DataInitDAO implements DataInitRepository {
         bookDAO.saveOrUpdate(book3);
         LOG.info("Created book " + book3.getId());
 
-        // Comentarios
-        Comment comment1 = new Comment(book1, "yo@mail.com", "El mejor libro sobre dinosaurios!");
-        commentDAO.save(comment1);
-        LOG.info("Created comment " + comment1.getId());
-        Comment comment2 = new Comment(book1, "sdlkfj@gmail.com", "No me gusto que no mencionen Hello Kitty");
-        commentDAO.save(comment2);
-        LOG.info("Created comment " + comment2.getId());
-        Comment comment3 = new Comment(book2, "religioso@islam.com", "Por Al-lah!");
-        commentDAO.save(comment3);
-        LOG.info("Created comment " + comment3.getId());
-        Comment comment4 = new Comment(book3, "Prueba", "Me hubiese gustado que el libro tuviese algo escrito");
-        commentDAO.save(comment4);
-        LOG.info("Created comment " + comment4.getId());
+        // NO recupera NINGUNO de los sets de la base
+        Book retrievedBook = bookDAO.findById(book1.getId());
 
-        book1.addBookComment(comment1);
-        book1.addBookComment(comment2);
-        book2.addBookComment(comment3);
-        book3.addBookComment(comment4);
-
-        bookDAO.update(book1);
-        bookDAO.update(book2);
-        bookDAO.update(book3);
-
-        // TESTING Comentarios
-        /*
-         * LOG.info("\n <<<<<<<<<<<<< Retrieving Comments... >>>>>>>>>>>>>>>>>");
-         *
-         * Comment commentTest = commentDAO.findById(comment1.getId());
-         * LOG.info("Comment " + commentTest.getId() + "\n" + ">>Book: " +
-         * commentTest.getBook() + "\n" + ">>User: " + commentTest.getUser() +
-         * "\n" + ">>Body: " + commentTest.getBody()); commentTest =
-         * commentDAO.findById(comment2.getId()); LOG.info("Comment " +
-         * commentTest.getId() + "\n" + ">>Book: " + commentTest.getBook() +
-         * "\n" + ">>User: " + commentTest.getUser() + "\n" + ">>Body: " +
-         * commentTest.getBody()); commentTest =
-         * commentDAO.findById(comment3.getId()); LOG.info("Comment " +
-         * commentTest.getId() + "\n" + ">>Book: " + commentTest.getBook() +
-         * "\n" + ">>User: " + commentTest.getUser() + "\n" + ">>Body: " +
-         * commentTest.getBody()); commentTest =
-         * commentDAO.findById(comment4.getId()); LOG.info("Comment " +
-         * commentTest.getId() + "\n" + ">>Book: " + commentTest.getBook() +
-         * "\n" + ">>User: " + commentTest.getUser() + "\n" + ">>Body: " +
-         * commentTest.getBody());
-         *
-         * LOG.info("\n <<<<<<<<<<<<< END OF COMMENTS >>>>>>>>>>>>>>>>>");
-         */
-        // Prestamos
-        Loan loan = new Loan("user1", bookCopy1, new Date(), new Date());
-        genericDAO.saveOrUpdate(loan);
-        genericDAO.saveOrUpdate(book1);
-
+        System.out.println("Categorias en memoria: " + book1.getBookCategories().size() + " Categorias persistidas: "
+                + retrievedBook.getBookCategories().size());
     }
 
     @Override

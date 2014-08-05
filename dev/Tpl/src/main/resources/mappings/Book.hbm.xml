@@ -26,9 +26,13 @@
 		
 		<set name="bookCopies" table="BOOK_COPY" cascade="save-update">
 			<key column="BOOK_ID" />
-			<many-to-many column="BOOK_COPY_ID" class="ar.com.hexacta.tpl.model.BookCopy" />
-		
+			<many-to-many column="BOOK_COPY_ID" class="ar.com.hexacta.tpl.model.BookCopy" />		
 		</set>
- </class>
+		
+		<set name="bookComments" inverse="true">
+			<key column="BOOK_ID" not-null="true" />
+			<one-to-many class="ar.com.hexacta.tpl.model.Comment" />
+		</set>
+ 	</class>
 	
 </hibernate-mapping>

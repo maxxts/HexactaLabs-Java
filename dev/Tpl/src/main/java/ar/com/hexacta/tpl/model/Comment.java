@@ -7,11 +7,11 @@ public class Comment extends Entity {
 
     private static final long serialVersionUID = 537917183637872456L;
 
+    private Book book;
+
     private String user;
 
     private String body;
-
-    private Book book;
 
     // Hibernate needs
     public Comment() {

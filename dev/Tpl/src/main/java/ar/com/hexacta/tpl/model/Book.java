@@ -1,6 +1,5 @@
 package ar.com.hexacta.tpl.model;
 
-import java.util.List;
 import java.util.Set;
 
 public class Book extends Entity {
@@ -19,7 +18,7 @@ public class Book extends Entity {
 
     private Set<BookCopy> bookCopies;
 
-    private List<Comment> bookComments;
+    private Set<Comment> bookComments;
 
     // Hibernate needs
     public Book() {
@@ -32,7 +31,7 @@ public class Book extends Entity {
     }
 
     public Book(final String aName, final String aDescription, final String aPublisher,
-            final Set<BookCategory> bookCategories, final Set<BookCopy> bookCopies, final List<Comment> bookComments) {
+            final Set<BookCategory> bookCategories, final Set<BookCopy> bookCopies, final Set<Comment> bookComments) {
         super();
         name = aName;
         description = aDescription;
@@ -91,15 +90,16 @@ public class Book extends Entity {
         this.country = country;
     }
 
-    public List<Comment> getBookComments() {
+    public Set<Comment> getBookComments() {
         return bookComments;
     }
 
-    public void setBookComments(final List<Comment> bookComments) {
+    public void setBookComments(final Set<Comment> bookComments) {
         this.bookComments = bookComments;
     }
 
     public void addBookComment(final Comment aComment) {
+        aComment.setBook(this);
         bookComments.add(aComment);
     }
 
