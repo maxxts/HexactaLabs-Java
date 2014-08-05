@@ -40,13 +40,13 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 	
 	$scope.comment = {};
 	$scope.addComment = function(book){
-		//TODO: cambiar esto cuando ya esten implementados los comentarios en el backend
 		$scope.comment.book = book.id;
-		if (!book.comments)
-			book.comments = [];
+		
+		if (!book.bookComments){  //FIXME: SACAR ESTO
+			book.bookComments = [];  
+		}
 		
 		var jsonComment = angular.toJson($scope.comment);
-		console.log(jsonComment);
 		$http.post('/Tpl/rest/comments', jsonComment).success(function(data, status, headers, config){
     		if(status = 200){
     			console.log("Comment Creation Completed.");
@@ -55,7 +55,7 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
     		console.log("An Error occurred while trying to store a comment");
     	}) ;
 		
-		book.comments.push($scope.comment);
+		book.bookComments.push($scope.comment); //FIXME: SACAR ESTO
 		$scope.loadBooks();
 		
 		$scope.comment = {};
@@ -64,10 +64,5 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 	$scope.limpiarComentarios = function(){
 		$scope.comment = {};
 	};
-	
-});
-
-booksApp.controller('commentController', function($scope,$rootScope,$http){
-
 	
 });
