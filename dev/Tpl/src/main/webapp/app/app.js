@@ -1,4 +1,4 @@
-var booksApp = angular.module('booksApp', ['ngRoute']);
+var booksApp = angular.module('booksApp', ['ngRoute','ui.bootstrap','customAngPop.bootstrap']);
 
 booksApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 	$routeProvider.
