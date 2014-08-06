@@ -3,6 +3,7 @@ package ar.com.hexacta.tpl.model;
 import java.util.List;
 import java.util.Set;
 
+
 public class Book extends Entity {
 
 	private static final long serialVersionUID = 604529088687479075L;

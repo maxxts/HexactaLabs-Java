@@ -22,14 +22,8 @@ public class BookDAO extends AbstractDAO<Book> implements BookRepository {
 	@Override
 	public Book findById(final Long bookId) {
 		Criteria criteria = this.getSession().createCriteria(Book.class);
-<<<<<<< HEAD
-        criteria.add(Restrictions.like("id", new Long(bookId))); // trae country null
-        Book b = (Book) criteria.uniqueResult();
-        return b;
-=======
 		criteria.add(Restrictions.like("id", bookId));
 		return (Book) criteria.uniqueResult();
->>>>>>> 85473341f72b21ddd1268698445fbd25d27c10d2
 	}
 
 	@Override

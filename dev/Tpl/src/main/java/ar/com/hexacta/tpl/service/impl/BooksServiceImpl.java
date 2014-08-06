@@ -20,11 +20,7 @@ public class BooksServiceImpl implements IBooksService {
     @Transactional
     public void createBook(final Book book) {
         // TODO: Add validation logic
-<<<<<<< HEAD
-    	booksRepository.save(book); //aca se guarda mal o en el otro se lee mal de la 'base' (country = null)
-=======
         booksRepository.save(book);
->>>>>>> 85473341f72b21ddd1268698445fbd25d27c10d2
     }
 
     @Override
@@ -52,16 +48,11 @@ public class BooksServiceImpl implements IBooksService {
     }
 
     @Override
-<<<<<<< HEAD
-	public Book findBook(String bookId) {
-    	Book b = booksRepository.findById(bookId); 
-		return b;
-	}
-=======
+
     public Book findBook(final Long bookId) {
         return booksRepository.findById(bookId);
     }
->>>>>>> 85473341f72b21ddd1268698445fbd25d27c10d2
+
 
     public BookRepository getBookRepository() {
         return booksRepository;
