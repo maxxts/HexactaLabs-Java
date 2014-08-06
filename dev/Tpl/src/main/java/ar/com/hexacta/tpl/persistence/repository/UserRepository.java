@@ -17,5 +17,5 @@ public interface UserRepository {
 
 	User findById(Long userId);
 
-	User findByUsernameAndPassword(String username, String password);
+	User findByUser(String username);
 }
