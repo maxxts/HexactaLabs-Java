@@ -73,6 +73,9 @@ public class UsersServiceImpl implements IUsersService {
 		if (password.length() < MIN_LENGTH_PASSWORD){
 			return false;
 		}
+		if (password.contains(" ")){
+			return false;
+		}
 		//TODO: ver si hay mas validaciones para hacer
 		return true;
 	}
