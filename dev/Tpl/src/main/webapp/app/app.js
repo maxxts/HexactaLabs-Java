@@ -35,38 +35,37 @@ booksApp.directive('userLogin',function() {
 			
 		function test(name, pass) {
 			
+			pass = (typeof pass === 'undefined') ? ' ' : pass;
+			
 			var nameRegex = /^[A-Z][A-Z0-9]{2,15}$/i; //nombre de usuario empieza con una letra de 3 a 16 caracteres y puede tener numeros
 			var passRegex = /^[A-Z0-9][A-Z0-9]{5,11}$/i; //password de 6 a 12 caracteres y puede tener numeros.
-			
-			//var emailRegex = /^[A-Z][A-Z0-9_]*\@[A-Z0-9_]*\.[A-Z]{2,3}(\.[A-Z]{2})?$/;
-			
-			console.log(passRegex.test(pass));
-			
-			if(name.length < 3 || name.length > 16 || pass.length == 0) {
-				return(false);
+
+			if( (nameRegex.test(name) == true) && (passRegex.test(pass) == true) ) {
+				console.log(pass);
+				return(true);
 			}
 			else {
-				return(true);
+				return(false);
 			}
 		}
 
 		  $scope.validateAndSubmit = function() {
 			  
-		  var name = $scope.user.name;
-		  var pass = $scope.user.pass;
-		  
-		  var isValid = test(name, pass);
-		  
-		  //Validacion de datos ingresados, despúes mandar al WS
-		  if( isValid == true ) {
-			  $location.path("/ok");
-		  }
-		  
-		  //Dar mensajes de error
-		  else {
-	    	  //console.log(isValid);  
-		  }
+			  var name = $scope.user.name;
+			  var pass = $scope.user.pass;
 			  
+			  var isValid = test(name, pass);
+			  
+			  //Validacion de datos ingresados, despúes mandar al WS
+			  if( isValid == true ) {
+				  $location.path("/ok");
+			  }
+			  
+			  //Dar mensajes de error
+			  else {
+		    	  console.log(isValid);  
+			  }
+				  
 		  }
 	    }]
 	}
