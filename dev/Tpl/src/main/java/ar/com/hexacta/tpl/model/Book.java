@@ -42,7 +42,6 @@ public class Book extends Entity {
 		this.bookCategories = bookCategories;
 		this.bookCopies = bookCopies;
 		this.bookComments = bookComments;
-
 	}
 
 	public Set<BookCategory> getBookCategories() {

@@ -11,9 +11,8 @@ public class LoginServiceImpl implements ILoginService {
 	@Autowired
 	UserRepository userRepository;
 	
-	
 	@Override
-	public User findUserByUsernameAndPassword(String username, String password) {
-		return userRepository.findByUsernameAndPassword(username, password);
+	public User findUserByUsername(String username) {
+		return userRepository.findByUser(username);
 	}
 }
