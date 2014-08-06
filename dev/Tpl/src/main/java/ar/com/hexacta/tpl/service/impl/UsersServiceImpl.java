@@ -40,7 +40,7 @@ public class UsersServiceImpl implements IUsersService {
 
 	@Override
 	public boolean updateUser(User user) {
-		if (!validateUser(user)){
+		if (validateUser(user)){
 			userRepository.update(user);
 			return true;
 		}else{
@@ -73,7 +73,7 @@ public class UsersServiceImpl implements IUsersService {
 			if (user == null){ //The user is being created, so the username must be the same to another existing username 
 				return false;
 			}
-			if (user.getUsername() != username){ //the username is being modified, and its the same to another existing username
+			if (!user.getUsername().equals(username)){ //the username is being modified, and its the same to another existing username
 				return false;
 			}
 		}
