@@ -1,6 +1,5 @@
 package ar.com.hexacta.tpl.resource;
 
-import java.io.IOException;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
@@ -10,7 +9,6 @@ import javax.ws.rs.Produces;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import sun.misc.BASE64Decoder;
 import ar.com.hexacta.tpl.model.User;
 import ar.com.hexacta.tpl.service.ILoginService;
 
@@ -25,27 +23,19 @@ public class LoginWS {
 	@GET
 	@Path("/")
 	@Produces("application/json")
-	public User validateUser(@HeaderParam("Authorization") String auth){
-		BASE64Decoder decoder = new BASE64Decoder();
-		byte[] decoded;
-		try {
-			decoded = decoder.decodeBuffer(auth);
-			String alldecoded = new String (decoded);
-			String basic = "basic ";
-			String username = alldecoded.substring(basic.length(), alldecoded.indexOf(':'));
-			String password = alldecoded.substring (alldecoded.indexOf(':') + 1);
-			User user = loginService.findUserByUsername(username);
-			if (user == null){ //there's no user with such username
-				return null;
-			}
-			if (user.getPassword() != password){//the password is incorrect for that username
-				return null;
-			}
-			return user;
-		} catch (IOException e) {
+	public User validateUser(@HeaderParam("Authentication") String auth){
+		String basic = "basic ";
+		String username = auth.substring(basic.length(), auth.indexOf(':'));
+		String password = auth.substring (auth.indexOf(':') + 1);
+		
+		User user = loginService.findUserByUsername(username);
+		if (user == null){ //there's no user with such username
 			return null;
 		}
-		
+		if (!user.getPassword().equals(password)){//the password is incorrect for that username
+			return null;
+		}
+		return user;
 	}
 	
 }
