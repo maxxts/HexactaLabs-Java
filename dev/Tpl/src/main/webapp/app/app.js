@@ -33,8 +33,19 @@ booksApp.directive('userLogin',function() {
 		templateUrl: 'app/views/loginView.html',
 		controller: ['$scope', '$http', '$location', function($scope, $http, $location) {
 			
-		function test(nombre) {
-			alert(nombre);
+		function test(name, email) {
+			
+			var nameRegex = /^[A-Z][A-Z0-9]{2,15}$/i;
+			var emailRegex = /^[A-Z]$/;
+			
+			console.log(emailRegex.test(email));
+			
+			if(name.length < 3 || name.length > 16 || email.length == 0) {
+				return(false);
+			}
+			else {
+				return(true);
+			}
 		}
 
 		  $scope.validateAndSubmit = function() {
@@ -42,16 +53,16 @@ booksApp.directive('userLogin',function() {
 		  var name = $scope.user.name;
 		  var email = $scope.user.email;
 		  
-		  test(name);
+		  var isValid = test(name, email);
 		  
 		  //Validacion de datos ingresados, despúes mandar al WS
-		  if( name == "asd") {
+		  if( isValid == true ) {
 			  $location.path("/ok");
 		  }
 		  
 		  //Dar mensajes de error
 		  else {
-	    	  console.log($scope.user.name);  
+	    	  //console.log(isValid);  
 		  }
 			  
 		  }
