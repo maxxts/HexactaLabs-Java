@@ -14,8 +14,8 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 		$location.path("/lendBook/"+bookId);
 	};
 
-	$scope.linkToLogIn=function(){
-		$location.path("/logIn/");
+	$scope.linkToRegister=function(){
+		$location.path("/register");
 	};
 	
 	$http({
