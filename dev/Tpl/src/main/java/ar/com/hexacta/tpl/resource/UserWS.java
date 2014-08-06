@@ -25,11 +25,13 @@ import ar.com.hexacta.tpl.service.IUsersService;
 
 @Service
 public class UserWS {
+	
+	@Autowired
+	private IUsersService userService;
+	
 	public UserWS(){
 		
 	}
-	@Autowired
-	private IUsersService userService;
 	
 	@GET
 	@Path("/")

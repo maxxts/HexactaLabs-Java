@@ -14,12 +14,13 @@ import sun.misc.BASE64Decoder;
 import ar.com.hexacta.tpl.model.User;
 import ar.com.hexacta.tpl.service.ILoginService;
 
-@Service
+//@Service
 public class LoginWS {
 	
 	@Autowired
 	private ILoginService loginService;
 	
+	public LoginWS(){}
 
 	@GET
 	@Path("/")
@@ -32,8 +33,15 @@ public class LoginWS {
 			String alldecoded = new String (decoded);
 			String basic = "basic ";
 			String username = alldecoded.substring(basic.length(), alldecoded.indexOf(':'));
-			//String password = alldecoded.substring (alldecoded.indexOf(':') + 1);
-			return loginService.findUserByUsername(username);
+			String password = alldecoded.substring (alldecoded.indexOf(':') + 1);
+			User user = loginService.findUserByUsername(username);
+			if (user == null){ //there's no user with such username
+				return null;
+			}
+			if (user.getPassword() != password){//the password is incorrect for that username
+				return null;
+			}
+			return user;
 		} catch (IOException e) {
 			return null;
 		}

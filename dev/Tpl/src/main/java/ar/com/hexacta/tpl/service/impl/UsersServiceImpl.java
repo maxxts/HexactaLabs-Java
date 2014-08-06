@@ -3,11 +3,13 @@ package ar.com.hexacta.tpl.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ar.com.hexacta.tpl.model.User;
 import ar.com.hexacta.tpl.service.IUsersService;
 import ar.com.hexacta.tpl.persistence.repository.UserRepository;
 
+@Service
 public class UsersServiceImpl implements IUsersService {
 	private static int MIN_LENGTH_USERNAME = 3;
 	private static int MIN_LENGTH_PASSWORD = 6;
@@ -57,13 +59,23 @@ public class UsersServiceImpl implements IUsersService {
 	}
 
 	
-	private boolean validateUsername(String username){
+	private boolean validateUsername(String username, Long id){
 		if (username.length() < MIN_LENGTH_USERNAME){
 			return false;
 		}
 		boolean nonAlphanumeric = username.matches("^.*[^a-zA-Z0-9 ].*$");
 		if(nonAlphanumeric){
 			return false;
+		}
+		User alreadyExists = userRepository.findByUser(username);
+		if (alreadyExists != null){
+			User user = userRepository.findById(id);
+			if (user == null){ //The user is being created, so the username must be the same to another existing username 
+				return false;
+			}
+			if (user.getUsername() != username){ //the username is being modified, and its the same to another existing username
+				return false;
+			}
 		}
 		//TODO: ver si hay mas validaciones para hacer
 		return true;
@@ -73,7 +85,7 @@ public class UsersServiceImpl implements IUsersService {
 		if (password.length() < MIN_LENGTH_PASSWORD){
 			return false;
 		}
-		if (password.contains(" ")){
+		if (password.contains(":")){
 			return false;
 		}
 		//TODO: ver si hay mas validaciones para hacer
@@ -81,6 +93,6 @@ public class UsersServiceImpl implements IUsersService {
 	}
 	
 	private boolean validateUser(User user){
-		return (validateUsername(user.getUsername()) && validatePassword(user.getPassword()));
+		return (validateUsername(user.getUsername(), user.getId()) && validatePassword(user.getPassword()));
 	}
 }
