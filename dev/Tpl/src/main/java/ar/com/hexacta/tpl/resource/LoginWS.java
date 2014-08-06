@@ -14,7 +14,7 @@ import sun.misc.BASE64Decoder;
 import ar.com.hexacta.tpl.model.User;
 import ar.com.hexacta.tpl.service.ILoginService;
 
-//@Service
+@Service
 public class LoginWS {
 	
 	@Autowired
