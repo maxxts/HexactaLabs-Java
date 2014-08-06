@@ -58,12 +58,15 @@ public class UserWS {
 	@POST
 	@Path("/")
 	@Consumes("application/json")
-	public Response createUser(
-			@Multipart(value = "newUser", type = "application/json") final String jsonUser) {
+	public Response createUser(	@Multipart(value = "newUser", type = "application/json") final String jsonUser) {
 		try {
-
-			userService.createUser(parseUser(jsonUser));
-
+			boolean validation = userService.createUser(parseUser(jsonUser));
+			if (validation){
+				return Response.ok().build();
+			}else{
+				return Response.serverError().build();
+			}
+				
 		} catch (JsonParseException e) {
 			e.printStackTrace();
 			return Response.serverError().build();
@@ -77,20 +80,22 @@ public class UserWS {
 			e.printStackTrace();
 			return Response.serverError().build();
 		}
-		return Response.ok().build();
-
 	}
 	
 	@PUT
 	@Path("/{userId}")
 	@Consumes("application/json")
-	public Response updateUser(
-			@PathParam("userId") final String userId,
-			final String jsonUser) {
+	public Response updateUser(	@PathParam("userId") final String userId, final String jsonUser) {
 		try {
 			User user = parseUser(jsonUser);
 			user.setId(new Long(userId));
-			userService.updateUser(user);
+			boolean validation = userService.updateUser(user);
+			
+			if (validation){
+				return Response.ok().build();
+			}else{
+				return Response.serverError().build();
+			}
 
 		} catch (JsonParseException e) {
 			e.printStackTrace();
@@ -105,7 +110,6 @@ public class UserWS {
 			e.printStackTrace();
 			return Response.serverError().build();
 		}
-		return Response.ok().build();
 	}
 	
 	@DELETE
