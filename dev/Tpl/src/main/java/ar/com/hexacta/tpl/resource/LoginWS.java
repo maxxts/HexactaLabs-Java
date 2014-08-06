@@ -32,8 +32,8 @@ public class LoginWS {
 			String alldecoded = new String (decoded);
 			String basic = "basic ";
 			String username = alldecoded.substring(basic.length(), alldecoded.indexOf(':'));
-			String password = alldecoded.substring (alldecoded.indexOf(':') + 1);
-			return loginService.findUserByUsernameAndPassword(username, password);
+			//String password = alldecoded.substring (alldecoded.indexOf(':') + 1);
+			return loginService.findUserByUsername(username);
 		} catch (IOException e) {
 			return null;
 		}
