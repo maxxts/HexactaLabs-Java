@@ -1,26 +1,8 @@
 booksApp.controller('editBookCtrl', function($scope, $location, $rootScope,
 		$routeParams, $http) {
 	$scope.books = $rootScope.books;
-<<<<<<< HEAD
 	
 	
-	$scope.backToHome = function(){
-    	$location.path("/");
-    };
-
-    $scope.reset = function() {
-    	$scope.newBook = {};
-    };
-
-    $scope.reset();
-    
-    $scope.bookId = $routeParams.bookId;
-    $scope.currentBook = null;
-    
-    
-    $http({
-=======
-
 	$scope.backToHome = function() {
 		$location.path("/");
 	};
@@ -40,7 +22,6 @@ booksApp.controller('editBookCtrl', function($scope, $location, $rootScope,
 	$scope.currentBook = null;
 
 	$http({
->>>>>>> 85473341f72b21ddd1268698445fbd25d27c10d2
 		method : 'GET',
 		url : '/Tpl/rest/books/' + $scope.bookId,
 		headers : {
@@ -54,7 +35,6 @@ booksApp.controller('editBookCtrl', function($scope, $location, $rootScope,
 			console.log("Book's Country: " + $scope.currentBook.country);
 		}
 
-<<<<<<< HEAD
 	}).error(function(data, status, headers, config){
 		console.log("An Error occurred while trying to get book:" + $scope.bookId);
 	});
@@ -73,11 +53,10 @@ booksApp.controller('editBookCtrl', function($scope, $location, $rootScope,
        	$scope.newBook = angular.copy(aBook);
 		$rootScope.books[$rootScope.books.length] = aBook;	
     };
-=======
 	}).error(
 			function(data, status, headers, config) {
 				console.log("An Error occurred while trying to get book:"
 						+ $scope.bookId);
 			});
->>>>>>> 85473341f72b21ddd1268698445fbd25d27c10d2
+
 });

@@ -48,11 +48,9 @@ public class BooksServiceImpl implements IBooksService {
     }
 
     @Override
-
     public Book findBook(final Long bookId) {
         return booksRepository.findById(bookId);
     }
-
 
     public BookRepository getBookRepository() {
         return booksRepository;
