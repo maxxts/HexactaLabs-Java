@@ -45,16 +45,7 @@ public class UserWS {
 		return userService.findUser(new Long(userId));
 	}
 	
-	/* TODO: metodo para obtener usuario a partir de user+pass
-	@GET
-	@Path("/")
-	@Consumes("application/j")
-	*/
-	public User validateUser(String username, String password){
-		return userService.findUserByUsernameAndPassword(username, password);
-	}
-	
-	
+
 	@POST
 	@Path("/")
 	@Consumes("application/json")

@@ -9,8 +9,6 @@ public interface IUsersService {
 
 	User findUser(Long userId);
 	
-	User findUserByUsernameAndPassword(String username, String password);
-
 	boolean createUser(final User user);
 
 	boolean updateUser(final User user);
