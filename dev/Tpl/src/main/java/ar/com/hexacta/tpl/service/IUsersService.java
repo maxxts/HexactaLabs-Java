@@ -9,13 +9,11 @@ public interface IUsersService {
 
 	User findUser(Long userId);
 	
-	User findUserByUsernameAndPassword(String username, String password);
+	boolean createUser(final User user);
 
-	void createUser(final User book);
+	boolean updateUser(final User user);
 
-	void updateUser(final User book);
-
-	void deleteUser(final User book);
+	void deleteUser(final User user);
 
 	void deleteUserById(Long userId);
 
