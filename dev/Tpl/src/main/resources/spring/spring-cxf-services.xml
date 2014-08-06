@@ -43,7 +43,7 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
 
 	</bean>
 	
-		<jaxrs:server id="UserCXFService" address="/users">
+	<jaxrs:server id="UserCXFService" address="/users">
 		<jaxrs:serviceBeans>
 			<ref bean="userWS" />
 		</jaxrs:serviceBeans>
@@ -57,8 +57,8 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
 	
 
 	</bean>
-	
-		<jaxrs:server id="LoginCXFService" address="/login">
+
+	<jaxrs:server id="LoginCXFService" address="/login">
 		<jaxrs:serviceBeans>
 			<ref bean="loginWS" />
 		</jaxrs:serviceBeans>
@@ -72,6 +72,6 @@ http://cxf.apache.org/schemas/jaxrs.xsd">
 	
 
 	</bean>
-	
+
 	
 </beans>
