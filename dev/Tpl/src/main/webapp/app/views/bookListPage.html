@@ -1,3 +1,13 @@
+<style>
+.ng-invalid.ng-dirty{
+	border-color: 'red';
+}
+
+.ng-valid.ng-dirty{
+	border-color: 'green';
+}
+</style>
+
 <section id="bookListPage">
 <div ng-controller="bookListCtrl">
 <div>
@@ -78,31 +88,30 @@
 							</div>
 							
 							<!-- TODO: en algun momento se va a agregar una foto para poner aca -->
-							Ac&aacute; van a ir los comentarios
-							<blockquote ng-repeat="comment in selectedBook.comments">
-								{{comment.text}}
-								<cite>Por: {{comment.author}}</cite>
+							
+							Comentarios:
+							<blockquote ng-repeat="comment in selectedBook.bookComments">
+								{{comment.body}}
+								<cite>Por: {{comment.user}}</cite>
 							</blockquote>
-							<form role="form" name="commentForm" ng-controller="CommentController as commentCtrl" ng-submit="commentCtrl.addComment(selectedBook)">
+							<form role="form" name="commentForm" ng-submit="commentForm.$valid && addComment(selectedBook)" novalidate>
 								<div class="form-group">
 									<label for="txtCommentText">Comentario</label>
-									<textarea ng-model="comment.text" class="form-control"
+									<textarea ng-model="comment.body" class="form-control"
 										placeholder="Escriba aqu&iacute; su comentario"
-										id="txtCommentText"></textarea>
+										id="txtCommentText" required></textarea>
 								</div>
 								<div class="form-group">
-									<label for="txtCommentAuthor">Email:</label> <input
-										type="email" ng-model="comment.author" class="form-control"
-										placeholder="ejemplo@hexacta.com" id="txtCommentAuthor" />
+									<label for="txtCommentAuthor">Email:</label> 
+									<input type="email" ng-model="comment.user" class="form-control" placeholder="ejemplo@hexacta.com" id="txtCommentAuthor" required/>
 								</div>
-								<input type="submit" value="Submit"
-									class="btn btn-hexacta-green btn-sm" />
+								
+								<input type="submit" value="Crear comentario" class="btn btn-hexacta-green btn-sm" />
 							</form>
 						</div>
 						
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default"
-								data-dismiss="modal">Cerrar</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="limpiarComentarios()">Cerrar</button>
 						</div>
 					</div>
 				</div>

@@ -8,11 +8,8 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 	};
 	$scope.linkToDeleteBook=function(bookId){
 		$location.path("/deleteBook/"+bookId);
-    /*	$rootScope.books.splice(bookId, 1);
-    	console.log("Intenta borrar");
-    	$location.path("/");
-   */ };
-    
+    };
+ 
 	$scope.linkToLendBook=function(bookId){
 		$location.path("/lendBook/"+bookId);
 	};
@@ -21,36 +18,51 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 		$scope.selectedBook = book;
 	};
 	
-	$http({
-		method : 'GET',
-		url: '/Tpl/rest/books',
-		headers : {'Content-type' : 'application/json', 'Accept' : 'application/json'}
-	}).success(function(data, status, headers, config){
+	$scope.loadBooks = function(){
+		$http({
+			method : 'GET',
+			url: '/Tpl/rest/books',
+			headers : {'Content-type' : 'application/json', 'Accept' : 'application/json'}
+		}).success(function(data, status, headers, config){
 
-		if(status = 200)
-		{
-			$rootScope.books = [];
-			$rootScope.books = data;
-			$scope.books = $rootScope.books;
-		}
+			if(status = 200)
+			{
+				$rootScope.books = [];
+				$rootScope.books = data;
+				$scope.books = $rootScope.books;
+			}
 
-	}).error(function(data, status, headers, config){
-		console.log("An Error occurred while trying to get all books");
-	});
+		}).error(function(data, status, headers, config){
+			console.log("An Error occurred while trying to get all books");
+		});
+	}
+	$scope.loadBooks();
 	
-	
-});
-
-booksApp.controller('commentController', function(){
-	this.comment = {};
-	this.addComment = function(book){
-		alert("HOLA");
-		//TODO: cambiar esto cuando ya esten implementados los comentarios en el backend
-	
-		if (!book.comments)
-			book.comments = [];
+	$scope.comment = {};
+	$scope.addComment = function(book){
+		$scope.comment.book = book.id;
 		
-		book.comments.push(this.comment);
-		this.comment = {};
+		if (!book.bookComments){  //FIXME: SACAR ESTO
+			book.bookComments = [];  
+		}
+		
+		var jsonComment = angular.toJson($scope.comment);
+		$http.post('/Tpl/rest/comments', jsonComment).success(function(data, status, headers, config){
+    		if(status = 200){
+    			console.log("Comment Creation Completed.");
+    		}
+    	}).error(function(data, status, headers, config){
+    		console.log("An Error occurred while trying to store a comment");
+    	}) ;
+		
+		book.bookComments.push($scope.comment); //FIXME: SACAR ESTO
+		$scope.loadBooks();
+		
+		$scope.comment = {};
 	};
+	
+	$scope.limpiarComentarios = function(){
+		$scope.comment = {};
+	};
+	
 });
