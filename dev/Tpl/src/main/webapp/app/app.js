@@ -22,6 +22,10 @@ booksApp.config(['$routeProvider', '$locationProvider', function ($routeProvider
             templateUrl: 'app/views/deleteBookPage.html',
             controller: 'deleteBookCtrl'
         }).
+        when('/register', {
+            templateUrl: 'app/views/registerPage.html',
+            controller: 'registerCtrl'
+        }).
 		otherwise({
 			redirectTo: '/'
 		});

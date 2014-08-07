@@ -3,7 +3,12 @@
  */
 package ar.com.hexacta.tpl.model;
 
-public class Comment extends Entity {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Comment extends Entidad implements Serializable {
 
     private static final long serialVersionUID = 537917183637872456L;
 

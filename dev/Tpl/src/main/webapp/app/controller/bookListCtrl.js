@@ -13,7 +13,17 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 	$scope.linkToLendBook=function(bookId){
 		$location.path("/lendBook/"+bookId);
 	};
+
+	$scope.linkToRegister=function(){
+		$location.path("/register");
+	};
 	
+	$http({
+		method : 'GET',
+		url: '/Tpl/rest/books',
+		headers : {'Content-type' : 'application/json', 'Accept' : 'application/json'}
+	}).success(function(data, status, headers, config){
+
 	$scope.modifyModal=function(book){
 		$scope.selectedBook = book;
 	};
@@ -65,4 +75,5 @@ booksApp.controller('bookListCtrl', function ($scope,$location,$rootScope,$http)
 		$scope.comment = {};
 	};
 	
+	});	
 });

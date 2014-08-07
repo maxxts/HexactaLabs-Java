@@ -2,7 +2,7 @@ package ar.com.hexacta.tpl.model;
 
 import java.util.Set;
 
-public class Book extends Entity {
+public class Book extends Entidad {
 
     private static final long serialVersionUID = 604529088687479075L;
 
@@ -21,6 +21,7 @@ public class Book extends Entity {
     private Set<Comment> bookComments;
 
     // Hibernate needs this
+
     public Book() {
         super();
     }
@@ -30,12 +31,15 @@ public class Book extends Entity {
         this.name = name;
     }
 
-    public Book(final String aName, final String aDescription, final String aPublisher,
-            final Set<BookCategory> bookCategories, final Set<BookCopy> bookCopies, final Set<Comment> bookComments) {
+    public Book(final String aName, final String aDescription, final String aPublisher, final String aCountry,
+
+    final Set<BookCategory> bookCategories, final Set<BookCopy> bookCopies, final Set<Comment> bookComments) {
+
         super();
         name = aName;
         description = aDescription;
         publisher = aPublisher;
+        country = aCountry;
         this.bookCategories = bookCategories;
         this.bookCopies = bookCopies;
         this.bookComments = bookComments;
