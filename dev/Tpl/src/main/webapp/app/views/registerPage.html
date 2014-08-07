@@ -4,6 +4,7 @@
 
 		<div class="container">
 			<div class="row">
+				<!-- Use the alert element ONLY if you controller can handle alerts -->
 				<alert ng-repeat="alert in alerts" type="{{alert.type}}"
 					close="closeAlert($index)"> <strong>{{alert.strong}}</strong>
 				{{alert.msg}}</alert>

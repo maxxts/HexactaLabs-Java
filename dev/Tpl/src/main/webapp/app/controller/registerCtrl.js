@@ -1,4 +1,7 @@
 booksApp.controller('registerCtrl', function($scope, $location, $rootScope) {
+	//Start of alerts
+	//Use for controllers that need alerts
+	
 	$scope.alerts = [];
 
 	$scope.addAlert = function(alertStrongMsg, alertMsg, alertType) {
@@ -16,7 +19,8 @@ booksApp.controller('registerCtrl', function($scope, $location, $rootScope) {
 	$scope.closeAlert = function(index) {
 		$scope.alerts.splice(index, 1);
 	};
-
+	//End of alerts
+	
 	$scope.backToHome = function() {
 		if ($scope.pass == $scope.pass2) {
 			$location.path("/");
