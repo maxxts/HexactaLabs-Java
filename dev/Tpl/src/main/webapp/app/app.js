@@ -1,4 +1,4 @@
-var booksApp = angular.module('booksApp', ['ngRoute','ui.bootstrap','customAngPop.bootstrap']);
+var booksApp = angular.module('booksApp', ['ngRoute','ui.bootstrap']);
 
 booksApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 	$routeProvider.
@@ -30,3 +30,4 @@ booksApp.config(['$routeProvider', '$locationProvider', function ($routeProvider
 booksApp.run(function($rootScope,$http) {
 	$rootScope.books = [];
 });
+
