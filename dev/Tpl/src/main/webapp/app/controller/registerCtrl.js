@@ -1,9 +1,12 @@
 booksApp.controller('registerCtrl', function($scope, $location, $rootScope) {
+
+	document.getElementById('user').focus();
+	
 	//Start of alerts
 	//Use for controllers that need alerts
 	
 	$scope.alerts = [];
-
+	
 	$scope.addAlert = function(alertStrongMsg, alertMsg, alertType) {
 		if ($scope.alerts.length < 1) {
 			$scope.alerts.push({
@@ -11,9 +14,7 @@ booksApp.controller('registerCtrl', function($scope, $location, $rootScope) {
 				msg : alertMsg,
 				type : alertType
 			});
-
 		}
-
 	};
 
 	$scope.closeAlert = function(index) {
@@ -31,5 +32,4 @@ booksApp.controller('registerCtrl', function($scope, $location, $rootScope) {
 			document.getElementById('pass').focus();
 		}
 	};
-
 });
