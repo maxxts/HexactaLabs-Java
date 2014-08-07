@@ -107,7 +107,7 @@ public class UserWS {
 	
 	@DELETE
 	@Path("/{userId}")
-	public void deleteComment(@PathParam("userId") final String userId) {
+	public void deleteUser(@PathParam("userId") final String userId) {
 		userService.deleteUserById(new Long(userId));
 	}
 	
