@@ -53,10 +53,6 @@ booksApp.controller('editBookCtrl', function($scope, $location, $rootScope,
        	$scope.newBook = angular.copy(aBook);
 		$rootScope.books[$rootScope.books.length] = aBook;	
     };
-	}).error(
-			function(data, status, headers, config) {
-				console.log("An Error occurred while trying to get book:"
-						+ $scope.bookId);
-			});
+	
 
 });
