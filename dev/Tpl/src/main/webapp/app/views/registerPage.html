@@ -9,8 +9,8 @@
 					close="closeAlert($index)"> <strong>{{alert.strong}}</strong>
 				{{alert.msg}}</alert>
 
-				<h2 class="text-center login-title">Register to continue to the
-					magnificent Hexacta e-BookStore</h2>
+				<h2 class="text-center login-title">Registrese para ingresar a la magnifica
+				 Hexacta e-BookStore</h2>
 				<div class="account-wall">
 
 					<img class="profile-img"
@@ -18,12 +18,13 @@
 						alt="">
 					<form novalidate name="registerForm" class="form-signin"
 						ng-submit="registerForm.$valid && backToHome()">
-						<input type="email" ng-model="user" class="form-control"
+						<input type="email" ng-model="user" class="form-control" 
+							ng-minlength="3" ng-maxlength="16" id="user"
 							placeholder="usuario@email.com" ng-required="true" autofocus>
-						<input ng-model="pass" id="pass" ng-minlength="6"
+						<input ng-model="pass" id="pass" ng-minlength="6" ng-maxlength="12"
 							placeholder="Ingrese aqui su password..." class="form-control"
 							type="password" ng-required="true"> <input
-							ng-model="pass2" id="pass2" ng-minlength="6"
+							ng-model="pass2" id="pass2" ng-minlength="6" ng-maxlength="12"
 							placeholder="Repita aqui su password..." class="form-control"
 							type="password" ng-required="true">
 						<button type="submit"
@@ -31,9 +32,8 @@
 							Registrar</button>
 						<label class="checkbox pull-left"> <input type="checkbox"
 							value="remember-me"> Recordar
-						</label> <a href="#" class="pull-right need-help">Ayuda? </a><span
-							class="clearfix"></span>
-
+						</label> <a href="#" class="pull-right need-help">Ayuda? </a>
+						<span class="clearfix"></span>
 					</form>
 				</div>
 			</div>
