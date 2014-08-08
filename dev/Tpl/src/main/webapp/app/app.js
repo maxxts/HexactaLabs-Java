@@ -41,9 +41,9 @@ booksApp.directive('userIngreso',function() {
 	
 			$scope.validateUser = function(aUser) {
 				  			  
-				var isValid = test(aUser.name, aUser.pass);
+			//	var isValid = test(aUser.name, aUser.pass);
 					  
-				if( isValid == true ) {
+			//	if( isValid == true ) {
 					var jsonUser = angular.toJson(aUser);
 					$http.post('/Tpl/rest/login', jsonUser).success(
 							function(data, status, headers, config) {
@@ -57,14 +57,14 @@ booksApp.directive('userIngreso',function() {
 						console.log("An Error occurred while trying to store the user:" + jsonUser);
 					});
 				}
-				else {
-					console.log("Usuario o contraseña invalida");  
-				}
+//				else {
+//					console.log("Usuario o contraseña invalida");  
+//				}
 						  
-			}
+		//	}
 				
 			// TODO: Use angular validation
-			function test(name, pass) {
+	/*		function test(name, pass) {
 				
 				pass = (typeof pass === 'undefined') ? ' ' : pass;
 				
@@ -78,7 +78,7 @@ booksApp.directive('userIngreso',function() {
 					$scope.user = {};
 					return(false);
 				}
-			}
+			}*/
 
 		}]
 	}
