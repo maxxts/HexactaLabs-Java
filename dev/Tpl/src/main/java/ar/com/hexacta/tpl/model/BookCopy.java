@@ -1,14 +1,20 @@
 /**
- * 
+ *
  */
 package ar.com.hexacta.tpl.model;
 
-/**
- * @author clopez
- * 
- */
-public class BookCopy extends Entity {
+import java.io.Serializable;
 
+// @Entity
+public class BookCopy extends Entidad implements Serializable {
+
+    /*
+     * @Id
+     * 
+     * @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
+     * 
+     * @Version private Long version;
+     */
     public static final String BOOK_RATE_BAD = "Bad";
 
     public static final String BOOK_RATE_NORMAL = "Normal";
@@ -23,10 +29,13 @@ public class BookCopy extends Entity {
 
     private static final long serialVersionUID = 1L;
 
+    // @Column(name = "CODE")
     private String code = "";
 
+    // @Column(name = "BOOK_RATE")
     private String bookRate;
 
+    // @Column(name = "STATE")
     private String state;
 
     public BookCopy() {
@@ -59,4 +68,13 @@ public class BookCopy extends Entity {
     public String getState() {
         return state;
     }
+    /*
+     * public Long getId() { return id; }
+     * 
+     * public void setId(final Long id) { this.id = id; }
+     * 
+     * public Long getVersion() { return version; }
+     * 
+     * public void setVersion(final Long version) { this.version = version; }
+     */
 }

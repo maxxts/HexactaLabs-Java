@@ -1,37 +1,26 @@
-var booksApp = angular.module('booksApp', ['ngRoute','ui.bootstrap']);
+booksApp.directive('registerForm', function() {
+	return {
+		restrict : 'E',
+		templateUrl : 'app/views/registerForm.html',
+		link : function(scope, el, attrs) {
+			scope.onDoneClick = function() {
+				if (scope.newUser.pass1 == scope.newUser.pass2) {
+					// Valido
+					scope.newUser = {};
+					scope.registerForm.$setPristine();
+					scope.$destroy();
+				} else {
+					// Invalido
+					scope.newUser.pass1 = "";
+					scope.newUser.pass2 = "";
+				}
 
-booksApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-	$routeProvider.
-		when('/', {	
-			templateUrl: 'app/views/bookListPage.html',
-			controller: 'bookListCtrl' 
-		}).
-	   	when('/createBook', { 
-	   		templateUrl: 'app/views/createBookPage.html', 
-	   		controller: 'createBookCtrl'
-	   	}).
-		when('/editBook/:bookId', {
-			templateUrl: 'app/views/editBookPage.html',
-			controller: 'editBookCtrl'
-		}).
-        when('/lendBook/:bookid', {
-            templateUrl: 'app/views/lendBookPage.html',
-            controller: 'lendBookCtrl'
-        }).
-        when('/deleteBook/:bookid', {
-            templateUrl: 'app/views/deleteBookPage.html',
-            controller: 'deleteBookCtrl'
-        }).
-        when('/register', {
-            templateUrl: 'app/views/registerPage.html',
-            controller: 'registerCtrl'
-        }).
-		otherwise({
-			redirectTo: '/'
-		});
-}]);
+			};
+		}
+	};
+});
 
-booksApp.directive('userIngreso',function() {
+booksApp.directive('userLogin',function() {
 	return {
 		restrict: 'E',
 		templateUrl: 'app/views/loginView.html',
@@ -83,8 +72,3 @@ booksApp.directive('userIngreso',function() {
 		}]
 	}
 });
-
-booksApp.run(function($rootScope,$http) {
-	$rootScope.books = [];
-});
-
