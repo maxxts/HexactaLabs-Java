@@ -63,8 +63,10 @@ public class UsersServiceImpl implements IUsersService {
 		if (username.length() < MIN_LENGTH_USERNAME){
 			return false;
 		}
-		boolean nonAlphanumeric = username.matches("^.*[^a-zA-Z0-9 ].*$");
-		if(nonAlphanumeric){
+		boolean alphanumeric = username.matches("^[a-zA-Z0-9\\.]*$");
+		boolean mailformat = username.toUpperCase().matches("^[A-Z][A-Z0-9_]*\\@[A-Z0-9_]*\\.[A-Z]{2,3}(\\.[A-Z]{2})?$");
+		System.out.println(mailformat);
+		if(!mailformat && !alphanumeric){
 			return false;
 		}
 		User alreadyExists = userRepository.findByUser(username);
