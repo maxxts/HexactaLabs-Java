@@ -2,15 +2,25 @@ package ar.com.hexacta.tpl.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Version;
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-public class Entity implements Serializable {
+@Entity
+public class Entidad implements Serializable {
 
     private static final long serialVersionUID = 5258570359382342687L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Version
     private Long version;
 
     public Long getId() {
