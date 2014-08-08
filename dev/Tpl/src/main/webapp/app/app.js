@@ -31,7 +31,7 @@ booksApp.config(['$routeProvider', '$locationProvider', function ($routeProvider
 		});
 }]);
 
-booksApp.directive('userLogin',function() {
+booksApp.directive('userIngreso',function() {
 	return {
 		restrict: 'E',
 		templateUrl: 'app/views/loginView.html',
