@@ -7,6 +7,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,28 +27,26 @@ public class LoginWS {
 	@GET
 	@Path("/")
 	@Produces("application/json")
-	public User validateUser(@HeaderParam("Authorization") String auth){
+	public Response validateUser(@HeaderParam("Authorization") String auth){
 		String basic = "Basic ";
 		auth = auth.substring(basic.length());
-		System.out.println(auth);
 		BASE64Decoder decoder = new BASE64Decoder();
 		try {
 			byte[] decodedBytes = decoder.decodeBuffer(auth);
 			String decoded = new String (decodedBytes);
-			System.out.println(decoded);
 			String username = decoded.substring(0, decoded.indexOf(':'));
 			String password = decoded.substring (decoded.indexOf(':') + 1);
 			
 			User user = loginService.findUserByUsername(username);
 			if (user == null){ //there's no user with such username
-				return null;
+				return Response.serverError().build();
 			}
 			if (!user.getPassword().equals(password)){//the password is incorrect for that username
-				return null;
+				return Response.serverError().build();
 			}
-			return user;
+			return Response.ok(user).build();
 		} catch (IOException e) {
-			return null;
+			return Response.status(401).build();
 		}
 		
 	}
